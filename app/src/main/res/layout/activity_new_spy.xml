@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ns_progressBar"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone"
+        android:indeterminate="false" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true">
+
+        <EditText
+            android:layout_width="@dimen/textfild_width"
+            android:layout_height="@dimen/textfild_haight"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/ns_fio"
+            android:hint="Ф И О"
+            android:gravity="center_horizontal" />
+
+        <View
+            android:id="@+id/view4"
+            android:layout_width="1dp"
+            android:layout_height="15dp"
+            android:layout_weight="1" />
+
+        <EditText
+            android:layout_width="@dimen/textfild_width"
+            android:layout_height="@dimen/textfild_haight"
+            android:inputType="textEmailAddress"
+            android:ems="10"
+            android:id="@+id/ns_email"
+            android:hint="Еmail"
+            android:gravity="center_horizontal" />
+
+        <View
+            android:id="@+id/view1"
+            android:layout_width="1dp"
+            android:layout_height="15dp"
+            android:layout_weight="1" />
+
+        <EditText
+            android:layout_width="@dimen/textfild_width"
+            android:layout_height="@dimen/textfild_haight"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:id="@+id/ns_pass"
+            android:hint="password"
+            android:gravity="center_horizontal" />
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="1dp"
+            android:layout_height="15dp"
+            android:layout_weight="1" />
+
+        <EditText
+            android:layout_width="@dimen/textfild_width"
+            android:layout_height="@dimen/textfild_haight"
+            android:inputType="phone"
+            android:ems="10"
+            android:id="@+id/ns_phone"
+            android:hint="Телефон"
+            android:gravity="center_horizontal" />
+
+        <View
+            android:id="@+id/view3"
+            android:layout_width="1dp"
+            android:layout_height="15dp"
+            android:layout_weight="1" />
+
+        <EditText
+            android:layout_width="@dimen/textfild_width"
+            android:layout_height="@dimen/textfild_haight"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/ns_url"
+            android:hint="URL ссылку на google диск "
+            android:gravity="center_horizontal" />
+
+        <View
+            android:id="@+id/view5"
+            android:layout_width="1dp"
+            android:layout_height="15dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:layout_width="@dimen/btnWight"
+            android:layout_height="@dimen/btnHight"
+            android:text="Зарегестрироваться"
+            android:id="@+id/ns_btnCreate"
+            android:textAllCaps="false"
+            android:background="@color/apptheme" />
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/apptheme">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/linearLayout">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView"
+            android:background="@drawable/spy"
+            android:layout_gravity="center_horizontal" />
+
+        <View
+            android:id="@+id/view1"
+            android:layout_width="1dp"
+            android:layout_height="15dp"
+            android:layout_weight="1" />
+
+        <EditText
+            android:layout_width="@dimen/textfild_width"
+            android:layout_height="@dimen/textfild_haight"
+            android:inputType="textEmailAddress"
+            android:ems="10"
+            android:id="@+id/la_email"
+            android:gravity="center_horizontal"
+            android:hint="email@mail.com"
+            android:textColor="@color/white" />
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="1dp"
+            android:layout_height="15dp"
+            android:layout_weight="1" />
+
+        <EditText
+            android:layout_width="@dimen/textfild_width"
+            android:layout_height="@dimen/textfild_haight"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:id="@+id/la_pass"
+            android:hint="password"
+            android:gravity="center_horizontal"
+            android:textColor="@color/white" />
+
+        <View
+            android:id="@+id/view3"
+            android:layout_width="1dp"
+            android:layout_height="15dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:layout_width="@dimen/btnWight"
+            android:layout_height="@dimen/btnHight"
+            android:text="Войти"
+            android:id="@+id/la_btnLogin"
+            android:textAllCaps="false"
+            android:background="@color/white" />
+
+        <View
+            android:id="@+id/view4"
+            android:layout_width="1dp"
+            android:layout_height="15dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:layout_width="@dimen/btnWight"
+            android:layout_height="@dimen/btnHight"
+            android:text="Зарегистрироваться"
+            android:id="@+id/la_btnNew"
+            android:textAllCaps="false"
+            android:background="@color/white" />
+
+        <View
+            android:id="@+id/view5"
+            android:layout_width="1dp"
+            android:layout_height="15dp"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+</RelativeLayout>

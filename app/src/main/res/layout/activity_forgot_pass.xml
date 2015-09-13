@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true">
+
+        <EditText
+            android:layout_width="@dimen/textfild_width"
+            android:layout_height="@dimen/textfild_haight"
+            android:inputType="textEmailAddress"
+            android:ems="10"
+            android:id="@+id/afp_email"
+            android:hint="Еmail"
+            android:gravity="center_horizontal" />
+
+        <View
+            android:id="@+id/view4"
+            android:layout_width="1dp"
+            android:layout_height="15dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:layout_width="237dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="На ваш Еmail будит выслано письмо с интрукцией для изменения пароля"
+            android:id="@+id/textView7"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal" />
+
+        <View
+            android:id="@+id/view1"
+            android:layout_width="1dp"
+            android:layout_height="15dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:layout_width="@dimen/btnWight"
+            android:layout_height="@dimen/btnHight"
+            android:text="Отправить"
+            android:id="@+id/afp_btnSend"
+            android:textAllCaps="false"
+            android:background="@color/apptheme" />
+    </LinearLayout>
+</RelativeLayout>

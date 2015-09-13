@@ -1,0 +1,6 @@
+<root>
+    <item name='com.parse.ParseObject'>
+        <annotation name='org.jetbrains.annotations.NotNull' />
+        <annotation name='java.lang.annotation.Deprecated' />
+    </item>
+</root>

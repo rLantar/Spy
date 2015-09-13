@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Spy</string>
+    <string name="title_section1">Маршрут</string>
+    <string name="title_section2">Отчёты</string>
+    <string name="title_section3">Выход</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_example">Example action</string>
+    <string name="action_settings">Settings</string>
+
+
+    <string name="logout">Выход</string>
+    <string name="homeowner">Ищу сожителя</string>
+    <string name="homeless">Ищу жильё</string>
+    <string name="incorect_login">Введен не верный логин или пароль.</string>
+    <string name="internet_offline">Сойденение с сетью интернет отсуцтвует.</string>
+    <string name="fild_is_emputy">Заполните все поля</string>
+    <string name="registery_done">Регистрация прошла успешно</string>
+    <string name="registery_error">Ошибка при регистрации</string>
+    <string name="manual_send">На ваш E-mail выслана инструкция по восстановлению пароля</string>
+    <string name="bad_email">E-mail указан не верно</string>
+    <string name="email_exists">Email уже существует</string>
+
+    <string name="report_create">Отчет сохранен!</string>
+    <string name="report_updateMessage">Обязательно укажите заново нарушения!</string>
+    <string name="report_update">Отчет обновлён!</string>
+    <string name="report_error">Ошибка!</string>
+
+    <string name="report_violation1">Раздача более одного комплекта АПМ в одни руки</string>
+    <string name="report_violation2">Отсутствие элемента или элементов атрибутики</string>
+    <string name="report_violation3">Передача атрибутики или АПМ третьим лицам</string>
+    <string name="report_violation4">Неопрятный внешний вид</string>
+    <string name="report_violation5">Нахождение в состоянии алкогольного или наркотического опьянения</string>
+    <string name="report_violation6">Распитие спиртных напитков на рабочем месте</string>
+    <string name="report_violation7">Приём пищи в атрибутике</string>
+    <string name="report_violation8">Разговор по телефону в рабочие время более 2-х минут</string>
+    <string name="report_violation9">Раздача АПМ без предусмотренной инструкцией активиста фразой</string>
+    <string name="report_violation10">Курение в атрибутике</string>
+    <string name="report_violation11">Отсутствие на рабочем месте более 15 минут</string>
+
+
+</resources>
