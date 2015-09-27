@@ -77,6 +77,10 @@ public class RoutsListFragment extends Fragment {
 
                 MainActivity.setRouteName(routeList.get(position).getName());
                 MainActivity.setRouteNumber(routeList.get(position).getNumber());
+                MainActivity.setRoute(routeList.get(position));
+                MainActivity.setArea(routeList.get(position).getArea());
+                MainActivity.setAnnoncedCount(routeList.get(position).getNumber());
+
                 FragmentManager fm = getFragmentManager();
                 Fragment fragment = new CreateReportFragment();
                 fm.beginTransaction()

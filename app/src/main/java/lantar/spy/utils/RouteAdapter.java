@@ -39,14 +39,18 @@ public class RouteAdapter extends ArrayAdapter {
             holder = new ViewHolder();
             holder.name = (TextView) convertView
                     .findViewById(R.id.item_list_route);
+             holder.title = (TextView) convertView
+                    .findViewById(R.id.item_list_time);
+             holder.violation = (TextView) convertView
+                    .findViewById(R.id.item_list_brigInfo);
             convertView.setTag(holder);
 
         } else
             holder = (ViewHolder) convertView.getTag();
 
-
-        holder.name.setText(route.getNumber() + ". " + route.getName());
-
+            holder.name.setText(route.getNumber() + " человек. " + route.getName());
+            holder.title.setText(route.getTime());
+            holder.violation.setText(route.getBrigadir() + " " + route.getNumberBrigadir());
         return convertView;
     }
 }
@@ -56,4 +60,5 @@ class ViewHolder {
     TextView name;
     TextView title;
     TextView violation;
+    TextView descriprion;
 }

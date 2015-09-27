@@ -24,7 +24,9 @@ public class Constants {
     public final static String REPORT_START = "DateSTART";
     public final static String REPORT_FINISH = "DateFINISH";
     public final static String REPORT_NAME = "Name";
-    public final static String REPORT_COUNT_MEMBER = "CountMember";
+    public final static String REPORT_REAL_COUNT_MEMBER = "CountMember";
+    public final static String REPORT_BRIGADIR_COUNT_MEMBER = "BrigadirCountMember";
+    public final static String REPORT_ANNOUNCED_COUNT_MEMBER = "AnnouncedCountMember";
     public final static String REPORT_RAITING = "Raiting";
     public final static String REPORT_DESCRIPTION = "Description";
     public final static String REPORT_VIOLATION = "Violation";
@@ -40,6 +42,10 @@ public class Constants {
     public final static String ROUTE_NUMBER = "Number";
     public final static String ROUTE_NAME = "Name";
     public final static String ROUTE_ROUTE = "Route";
+    public final static String ROUTE_AREA = "Area";
+    public final static String ROUTE_BRIGADIR_NAME = "BrigadirName";
+    public final static String ROUTE_BRIGADIR_NUMBER = "BrigadirNumber";
+    public final static String ROUTE_TIME = "Time";
 
 
 

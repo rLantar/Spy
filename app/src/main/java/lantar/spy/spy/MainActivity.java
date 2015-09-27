@@ -16,6 +16,7 @@ import com.parse.ParseUser;
 
 import lantar.spy.R;
 import lantar.spy.api.UserAPI;
+import lantar.spy.entity.Route;
 import lantar.spy.fragment.ReportsListFragment;
 import lantar.spy.fragment.RoutsListFragment;
 import lantar.spy.login.LoginActivity;
@@ -32,6 +33,9 @@ public class MainActivity extends ActionBarActivity
     private static String routeName;
     private static int routeNumber;
     private static String reportId;
+    private static String area;
+    private static int annoncedCount;
+    private static Route route = new Route();
 
     /**
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
@@ -52,6 +56,7 @@ public class MainActivity extends ActionBarActivity
             fm.beginTransaction()
                     .add(R.id.fragment_container, fragment)
                     .commit();
+            fm.beginTransaction().isAddToBackStackAllowed();
         }
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
@@ -100,6 +105,7 @@ public class MainActivity extends ActionBarActivity
         }
         fragmentManager.beginTransaction()
                 .replace(R.id.fragment_container, fragment).commit();
+
     }
 
 
@@ -194,6 +200,45 @@ public class MainActivity extends ActionBarActivity
         finish();
 
 
+    }
+
+//    @Override
+//    public void onBackPressed() {
+//
+//        int count = getFragmentManager().getBackStackEntryCount();
+//
+//        if (count == 0) {
+//            super.onBackPressed();
+//
+//        } else {
+//            getFragmentManager().popBackStack();
+//        }
+//
+//    }
+
+
+    public static String getArea() {
+        return area;
+    }
+
+    public static void setArea(String area) {
+        MainActivity.area = area;
+    }
+
+    public static int getAnnoncedCount() {
+        return annoncedCount;
+    }
+
+    public static void setAnnoncedCount(int annoncedCount) {
+        MainActivity.annoncedCount = annoncedCount;
+    }
+
+    public static Route getRoute() {
+        return route;
+    }
+
+    public static void setRoute(Route route) {
+        route = route;
     }
 
     public static void setRouteName(String routeName) {

@@ -36,6 +36,10 @@ import lantar.spy.utils.Constants;
  */
 public class FixReportFragment extends Fragment {
 
+
+    private int route;
+    private int brigade;
+
     private Button btnCreate;
     private TextView textName;
     private String name;
@@ -55,6 +59,26 @@ public class FixReportFragment extends Fragment {
     private RatingBar ratingBar8;
     private RatingBar ratingBar9;
     private RatingBar ratingBar10;
+    private RatingBar ratingBar11;
+    private RatingBar ratingBar12;
+    private RatingBar ratingBar13;
+    private RatingBar ratingBar14;
+    private RatingBar ratingBar15;
+    private RatingBar ratingBar16;
+    private RatingBar ratingBar17;
+    private RatingBar ratingBar18;
+    private RatingBar ratingBar19;
+    private RatingBar ratingBar20;
+    private RatingBar ratingBar21;
+    private RatingBar ratingBar22;
+    private RatingBar ratingBar23;
+    private RatingBar ratingBar24;
+    private RatingBar ratingBar25;
+    private RatingBar ratingBar26;
+    private RatingBar ratingBar27;
+    private RatingBar ratingBar28;
+    private RatingBar ratingBar29;
+    private RatingBar ratingBar30;
 
     private CheckBox checkBox1;
     private CheckBox checkBox2;
@@ -69,6 +93,7 @@ public class FixReportFragment extends Fragment {
     private CheckBox checkBox11;
 
     private NumberPicker numberPicker;
+    private NumberPicker numberPickerBrigadir;
     private NumberPicker hourPickerStart;
     private NumberPicker minutePickierStart;
     private NumberPicker hourPickerFinish;
@@ -78,6 +103,7 @@ public class FixReportFragment extends Fragment {
     private TextView spyName;
 
     private int countPiple;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -105,6 +131,27 @@ public class FixReportFragment extends Fragment {
         ratingBar8 = (RatingBar) v.findViewById(R.id.ratingBar8);
         ratingBar9 = (RatingBar) v.findViewById(R.id.ratingBar9);
         ratingBar10 = (RatingBar) v.findViewById(R.id.ratingBar10);
+        ratingBar11 = (RatingBar) v.findViewById(R.id.ratingBar11);
+        ratingBar12 = (RatingBar) v.findViewById(R.id.ratingBar12);
+        ratingBar13 = (RatingBar) v.findViewById(R.id.ratingBar13);
+        ratingBar14 = (RatingBar) v.findViewById(R.id.ratingBar14);
+        ratingBar15 = (RatingBar) v.findViewById(R.id.ratingBar15);
+        ratingBar16 = (RatingBar) v.findViewById(R.id.ratingBar16);
+        ratingBar17 = (RatingBar) v.findViewById(R.id.ratingBar17);
+        ratingBar18 = (RatingBar) v.findViewById(R.id.ratingBar18);
+        ratingBar19 = (RatingBar) v.findViewById(R.id.ratingBar19);
+        ratingBar20 = (RatingBar) v.findViewById(R.id.ratingBar20);
+        ratingBar21 = (RatingBar) v.findViewById(R.id.ratingBar21);
+        ratingBar22 = (RatingBar) v.findViewById(R.id.ratingBar22);
+        ratingBar23 = (RatingBar) v.findViewById(R.id.ratingBar23);
+        ratingBar24 = (RatingBar) v.findViewById(R.id.ratingBar24);
+        ratingBar25 = (RatingBar) v.findViewById(R.id.ratingBar25);
+        ratingBar26 = (RatingBar) v.findViewById(R.id.ratingBar26);
+        ratingBar27 = (RatingBar) v.findViewById(R.id.ratingBar27);
+        ratingBar28 = (RatingBar) v.findViewById(R.id.ratingBar28);
+        ratingBar29 = (RatingBar) v.findViewById(R.id.ratingBar29);
+        ratingBar30 = (RatingBar) v.findViewById(R.id.ratingBar30);
+
         checkBoxViolation = (CheckBox) v.findViewById(R.id.crf_Violation);
         checkBox1 = (CheckBox) v.findViewById(R.id.checkBox1);
         checkBox2 = (CheckBox) v.findViewById(R.id.checkBox2);
@@ -128,13 +175,37 @@ public class FixReportFragment extends Fragment {
         ratingBar8.setStepSize(1);
         ratingBar9.setStepSize(1);
         ratingBar10.setStepSize(1);
+        ratingBar11.setStepSize(1);
+        ratingBar12.setStepSize(1);
+        ratingBar13.setStepSize(1);
+        ratingBar14.setStepSize(1);
+        ratingBar15.setStepSize(1);
+        ratingBar16.setStepSize(1);
+        ratingBar17.setStepSize(1);
+        ratingBar18.setStepSize(1);
+        ratingBar19.setStepSize(1);
+        ratingBar20.setStepSize(1);
+        ratingBar21.setStepSize(1);
+        ratingBar22.setStepSize(1);
+        ratingBar23.setStepSize(1);
+        ratingBar24.setStepSize(1);
+        ratingBar25.setStepSize(1);
+        ratingBar26.setStepSize(1);
+        ratingBar27.setStepSize(1);
+        ratingBar28.setStepSize(1);
+        ratingBar29.setStepSize(1);
+        ratingBar30.setStepSize(1);
 
         textName.setText(number + ". " + name.toString());
 
         numberPicker = (NumberPicker) v.findViewById(R.id.fcr_numberPicer);
 
-        numberPicker.setMaxValue(9);
+        numberPicker.setMaxValue(30);
         numberPicker.setMinValue(0);
+        numberPickerBrigadir = (NumberPicker) v.findViewById(R.id.fcr_brigadirCount);
+
+        numberPickerBrigadir.setMaxValue(30);
+        numberPickerBrigadir.setMinValue(0);
 
         hourPickerStart = (NumberPicker) v.findViewById(R.id.fcr_hourStart);
         hourPickerStart.setMaxValue(24);
@@ -185,6 +256,26 @@ public class FixReportFragment extends Fragment {
                 ratingBar8.setVisibility(RatingBar.GONE);
                 ratingBar9.setVisibility(RatingBar.GONE);
                 ratingBar10.setVisibility(RatingBar.GONE);
+                ratingBar11.setVisibility(RatingBar.GONE);
+                ratingBar12.setVisibility(RatingBar.GONE);
+                ratingBar13.setVisibility(RatingBar.GONE);
+                ratingBar14.setVisibility(RatingBar.GONE);
+                ratingBar15.setVisibility(RatingBar.GONE);
+                ratingBar16.setVisibility(RatingBar.GONE);
+                ratingBar17.setVisibility(RatingBar.GONE);
+                ratingBar18.setVisibility(RatingBar.GONE);
+                ratingBar19.setVisibility(RatingBar.GONE);
+                ratingBar20.setVisibility(RatingBar.GONE);
+                ratingBar21.setVisibility(RatingBar.GONE);
+                ratingBar22.setVisibility(RatingBar.GONE);
+                ratingBar23.setVisibility(RatingBar.GONE);
+                ratingBar24.setVisibility(RatingBar.GONE);
+                ratingBar25.setVisibility(RatingBar.GONE);
+                ratingBar26.setVisibility(RatingBar.GONE);
+                ratingBar27.setVisibility(RatingBar.GONE);
+                ratingBar28.setVisibility(RatingBar.GONE);
+                ratingBar29.setVisibility(RatingBar.GONE);
+                ratingBar30.setVisibility(RatingBar.GONE);
 
 
                 raitingBarVisibility(i2);
@@ -192,19 +283,21 @@ public class FixReportFragment extends Fragment {
 
         });
 
+
+
         btnCreate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Report report = new Report();
-                report.setName(MainActivity.getRouteName());
-                report.setNumber(MainActivity.getRouteNumber());
+//                report.setName(MainActivity.getRouteName());
+//                report.setNumber(MainActivity.getRouteNumber());
 //                report.setSpyName(ParseUser.getCurrentUser().getString(Constants.USER_FIO));
-                report.setRoute(ParseUser.getCurrentUser().getInt(Constants.USER_ROUTE));
+//                report.setRoute(ParseUser.getCurrentUser().getInt(Constants.USER_ROUTE));
                 report.setRaiting(allRating());
                 report.setCountMember(numberPicker.getValue());
-                report.setUlrSpyRepozitory(ParseUser.getCurrentUser().getString(Constants.USER_URL));
-                report.setUrlFile(et_photoLink.getText().toString());
+//                report.setUlrSpyRepozitory(ParseUser.getCurrentUser().getString(Constants.USER_URL));
+//                report.setUrlFile(et_photoLink.getText().toString());
 
                 int hourStart = hourPickerStart.getValue();
                 int minuteStart = minutePickierStart.getValue();
@@ -218,6 +311,9 @@ public class FixReportFragment extends Fragment {
                     report.setViolationDescriprion(violationCheked());
                 report.setDescrioption(et_description.getText().toString());
                 report.setObjectId(MainActivity.getReportId());
+                report.setRoute(route);
+                report.setBrigade(brigade);
+                report.setBrigadirCount(numberPickerBrigadir.getValue());
                 ReportAPI reportAPI = new ReportAPI(fixReportHandler);
                 reportAPI.update(report);
                 btnCreate.setEnabled(false);
@@ -230,6 +326,12 @@ public class FixReportFragment extends Fragment {
 
 
     }
+
+    private void initialize(){
+
+    }
+
+
 
     private String addZerro(int x) {
         if (x < 10) {
@@ -289,7 +391,66 @@ public class FixReportFragment extends Fragment {
                 case 10:
                     ratingBar10.setVisibility(RatingBar.VISIBLE);
                     break;
-
+                case 11:
+                    ratingBar11.setVisibility(RatingBar.VISIBLE);
+                    break;
+                case 12:
+                    ratingBar12.setVisibility(RatingBar.VISIBLE);
+                    break;
+                case 13:
+                    ratingBar13.setVisibility(RatingBar.VISIBLE);
+                    break;
+                case 14:
+                    ratingBar14.setVisibility(RatingBar.VISIBLE);
+                    break;
+                case 15:
+                    ratingBar15.setVisibility(RatingBar.VISIBLE);
+                    break;
+                case 16:
+                    ratingBar16.setVisibility(RatingBar.VISIBLE);
+                    break;
+                case 17:
+                    ratingBar17.setVisibility(RatingBar.VISIBLE);
+                    break;
+                case 18:
+                    ratingBar18.setVisibility(RatingBar.VISIBLE);
+                    break;
+                case 19:
+                    ratingBar19.setVisibility(RatingBar.VISIBLE);
+                    break;
+                case 20:
+                    ratingBar20.setVisibility(RatingBar.VISIBLE);
+                    break;
+                case 21:
+                    ratingBar21.setVisibility(RatingBar.VISIBLE);
+                    break;
+                case 22:
+                    ratingBar22.setVisibility(RatingBar.VISIBLE);
+                    break;
+                case 23:
+                    ratingBar23.setVisibility(RatingBar.VISIBLE);
+                    break;
+                case 24:
+                    ratingBar24.setVisibility(RatingBar.VISIBLE);
+                    break;
+                case 25:
+                    ratingBar25.setVisibility(RatingBar.VISIBLE);
+                    break;
+                case 26:
+                    ratingBar26.setVisibility(RatingBar.VISIBLE);
+                    break;
+                case 27:
+                    ratingBar27.setVisibility(RatingBar.VISIBLE);
+                    break;
+                case 28:
+                    ratingBar28.setVisibility(RatingBar.VISIBLE);
+                    break;
+                case 29:
+                    ratingBar29.setVisibility(RatingBar.VISIBLE);
+                    break;
+                case 30:
+                    ratingBar30.setVisibility(RatingBar.VISIBLE);
+                    break;
             }
 
         }
@@ -332,6 +493,66 @@ public class FixReportFragment extends Fragment {
                     break;
                 case 10:
                     ratingStr = ratingStr + ", " + (int) ratingBar10.getRating();
+                    break;
+                case 11:
+                    ratingStr =ratingStr + ", " + (int) ratingBar11.getRating();
+                    break;
+                case 12:
+                    ratingStr = ratingStr + ", " + ((int) ratingBar12.getRating());
+                    break;
+                case 13:
+                    ratingStr = ratingStr + ", " + (int) ratingBar13.getRating();
+                    break;
+                case 14:
+                    ratingStr = ratingStr + ", " + (int) ratingBar14.getRating();
+                    break;
+                case 15:
+                    ratingStr = ratingStr + ", " + (int) ratingBar15.getRating();
+                    break;
+                case 16:
+                    ratingStr = ratingStr + ", " + (int) ratingBar16.getRating();
+                    break;
+                case 17:
+                    ratingStr = ratingStr + ", " + (int) ratingBar17.getRating();
+                    break;
+                case 18:
+                    ratingStr = ratingStr + ", " + (int) ratingBar18.getRating();
+                    break;
+                case 19:
+                    ratingStr = ratingStr + ", " + (int) ratingBar19.getRating();
+                    break;
+                case 20:
+                    ratingStr = ratingStr + ", " + (int) ratingBar20.getRating();
+                    break;
+                case 21:
+                    ratingStr =ratingStr + ", " + (int) ratingBar21.getRating();
+                    break;
+                case 22:
+                    ratingStr = ratingStr + ", " + ((int) ratingBar22.getRating());
+                    break;
+                case 23:
+                    ratingStr = ratingStr + ", " + (int) ratingBar23.getRating();
+                    break;
+                case 24:
+                    ratingStr = ratingStr + ", " + (int) ratingBar24.getRating();
+                    break;
+                case 25:
+                    ratingStr = ratingStr + ", " + (int) ratingBar25.getRating();
+                    break;
+                case 26:
+                    ratingStr = ratingStr + ", " + (int) ratingBar26.getRating();
+                    break;
+                case 27:
+                    ratingStr = ratingStr + ", " + (int) ratingBar27.getRating();
+                    break;
+                case 28:
+                    ratingStr = ratingStr + ", " + (int) ratingBar28.getRating();
+                    break;
+                case 29:
+                    ratingStr = ratingStr + ", " + (int) ratingBar29.getRating();
+                    break;
+                case 30:
+                    ratingStr = ratingStr + ", " + (int) ratingBar30.getRating();
                     break;
 
             }
@@ -390,6 +611,46 @@ public class FixReportFragment extends Fragment {
                 ratingBar9.setRating(Integer.parseInt("" + rating.charAt(24)));
             if (x == 27)
                 ratingBar10.setRating(Integer.parseInt("" + rating.charAt(27)));
+            if (x == 30)
+                ratingBar11.setRating(Integer.parseInt("" + rating.charAt(0)));
+            if (x == 33)
+                ratingBar12.setRating(Integer.parseInt("" + rating.charAt(3)));
+            if (x == 36)
+                ratingBar13.setRating(Integer.parseInt("" + rating.charAt(6)));
+            if (x == 39)
+                ratingBar14.setRating(Integer.parseInt("" + rating.charAt(9)));
+            if (x == 42)
+                ratingBar15.setRating(Integer.parseInt("" + rating.charAt(12)));
+            if (x == 45)
+                ratingBar16.setRating(Integer.parseInt("" + rating.charAt(15)));
+            if (x == 48)
+                ratingBar17.setRating(Integer.parseInt("" + rating.charAt(18)));
+            if (x == 51)
+                ratingBar18.setRating(Integer.parseInt("" + rating.charAt(21)));
+            if (x == 54)
+                ratingBar19.setRating(Integer.parseInt("" + rating.charAt(24)));
+            if (x == 57)
+                ratingBar20.setRating(Integer.parseInt("" + rating.charAt(27)));
+            if (x == 60)
+                ratingBar21.setRating(Integer.parseInt("" + rating.charAt(0)));
+            if (x == 63)
+                ratingBar22.setRating(Integer.parseInt("" + rating.charAt(3)));
+            if (x == 66)
+                ratingBar23.setRating(Integer.parseInt("" + rating.charAt(6)));
+            if (x == 69)
+                ratingBar24.setRating(Integer.parseInt("" + rating.charAt(9)));
+            if (x == 72)
+                ratingBar25.setRating(Integer.parseInt("" + rating.charAt(12)));
+            if (x == 75)
+                ratingBar26.setRating(Integer.parseInt("" + rating.charAt(15)));
+            if (x == 78)
+                ratingBar27.setRating(Integer.parseInt("" + rating.charAt(18)));
+            if (x == 81)
+                ratingBar28.setRating(Integer.parseInt("" + rating.charAt(21)));
+            if (x == 84)
+                ratingBar29.setRating(Integer.parseInt("" + rating.charAt(24)));
+            if (x == 87)
+                ratingBar30.setRating(Integer.parseInt("" + rating.charAt(27)));
         }
 
     }
@@ -398,7 +659,7 @@ public class FixReportFragment extends Fragment {
         for (int x = 0; x < mark.length(); x = x + 3) {
             if (x == 0)
                 checkBox1.setChecked(testCheckBox(mark.charAt(0)));
-            checkBox1.setChecked(false);
+//            checkBox1.setChecked(false);
             if (x == 3)
                 checkBox2.setChecked(testCheckBox(mark.charAt(3)));
             if (x == 6)
@@ -431,6 +692,9 @@ public class FixReportFragment extends Fragment {
 
     private void onReportResult(Report report) {
 
+        route = report.getRoute();
+        brigade = report.getBrigade();
+
         if(ParseUser.getCurrentUser().getString(Constants.USER_FIO) != report.getSpyName()) {
             spyName.setText(report.getSpyName());
             spyName.setVisibility(TextView.VISIBLE);
@@ -442,6 +706,7 @@ public class FixReportFragment extends Fragment {
 
         progressBar.setVisibility(ProgressBar.GONE);
         scrollView.setVisibility(ScrollView.VISIBLE);
+        numberPickerBrigadir.setValue(report.getBrigadirCount());
         hourPickerStart.setValue(Integer.parseInt(startHour));
         minutePickierStart.setValue(Integer.parseInt(startMinute));
         hourPickerFinish.setValue(Integer.parseInt(finishHour));
@@ -493,6 +758,8 @@ public class FixReportFragment extends Fragment {
         }
 
     };
+
+
 
 
 }

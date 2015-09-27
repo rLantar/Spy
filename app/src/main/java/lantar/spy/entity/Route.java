@@ -9,6 +9,10 @@ public class Route {
     private int number;
     private String name;
     private int route;
+    private String brigadir;
+    private String numberBrigadir;
+    private String area;
+    private String time;
 
 
     public Route(String objectId, int number, String name, int route) {
@@ -19,6 +23,38 @@ public class Route {
     }
 
     public Route() {
+    }
+
+    public String getBrigadir() {
+        return brigadir;
+    }
+
+    public void setBrigadir(String brigadir) {
+        this.brigadir = brigadir;
+    }
+
+    public String getNumberBrigadir() {
+        return numberBrigadir;
+    }
+
+    public void setNumberBrigadir(String numberBrigadir) {
+        this.numberBrigadir = numberBrigadir;
+    }
+
+    public String getArea() {
+        return area;
+    }
+
+    public void setArea(String area) {
+        this.area = area;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 
     public String getObjectId() {

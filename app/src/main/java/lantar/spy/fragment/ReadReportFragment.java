@@ -105,8 +105,23 @@ public class ReadReportFragment extends Fragment {
         progressBar.setVisibility(ProgressBar.GONE);
         Date now = new Date();
         Date old = report.getCreateAt();
+
         if(old.getTime() + 5*60*1000 > now.getTime())
             fix.setVisibility(Button.VISIBLE);
+        String role = ParseUser.getCurrentUser().getString(Constants.USER_ROLE);
+                        switch (role){
+                    case Constants.USER_ROLE_BRIGADIR:
+                        fix.setVisibility(Button.VISIBLE);
+                        break;
+                    case Constants.USER_ROLE_SPY:
+//                        fragment = new ReadReportFragment();
+                        break;
+                    case Constants.USER_ROLE_GODFATER:
+                        fix.setVisibility(Button.VISIBLE);
+                        break;
+                    default:
+                        break;
+                }
 
         name.setText(MainActivity.getRouteNumber() + ". " +MainActivity.getRouteName());
         count.setText(count.getText().toString() + report.getCountMember());

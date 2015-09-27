@@ -41,6 +41,7 @@ public class ReportAdapter extends ArrayAdapter {
                     .findViewById(R.id.item_list_route);
             holder.title = (TextView) convertView.findViewById(R.id.item_listTitle);
             holder.violation = (TextView) convertView.findViewById((R.id.item_reportViolation));
+            holder.descriprion = (TextView) convertView.findViewById((R.id.item_reportDescription));
             convertView.setTag(holder);
 
         } else
@@ -53,9 +54,10 @@ public class ReportAdapter extends ArrayAdapter {
         holder.violation.setText(violation);
         if(report.getCountMember() == 0)
             holder.violation.setText("Активисты не обнаружены");
-        if(violation != null)
-            holder.violation.setText(holder.violation.getText().toString() + "  " + violation);
-
+//        if(violation != null)
+//            holder.violation.setText(holder.violation.getText().toString() + "  " + violation);
+        holder.violation.setBackgroundResource(R.color.red);
+        holder.descriprion.setText(report.getDescrioption());
 
         return convertView;
     }

@@ -73,19 +73,20 @@ public class ReportsListFragment extends Fragment {
                 String role = ParseUser.getCurrentUser().getString(Constants.USER_ROLE);
                 FragmentManager fm = getFragmentManager();
                 Fragment fragment = null;
-                switch (role){
-                    case Constants.USER_ROLE_BRIGADIR:
-                        fragment = new FixReportFragment();
-                        break;
-                    case Constants.USER_ROLE_SPY:
-                        fragment = new ReadReportFragment();
-                        break;
-                    case Constants.USER_ROLE_GODFATER:
-                       fragment = new FixReportFragment();
-                        break;
-                    default:
-                        break;
-                }
+//                switch (role){
+//                    case Constants.USER_ROLE_BRIGADIR:
+//                        fragment = new FixReportFragment();
+//                        break;
+//                    case Constants.USER_ROLE_SPY:
+//                        fragment = new ReadReportFragment();
+//                        break;
+//                    case Constants.USER_ROLE_GODFATER:
+//                       fragment = new FixReportFragment();
+//                        break;
+//                    default:
+//                        break;
+//                }
+                fragment = new ReadReportFragment();
                 fm.beginTransaction()
                         .replace(R.id.fragment_container, fragment).commit();
 

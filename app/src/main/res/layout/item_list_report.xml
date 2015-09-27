@@ -41,6 +41,15 @@
             android:layout_above="@+id/view2"
             android:layout_toEndOf="@+id/view1" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Medium Text"
+            android:id="@+id/item_reportDescription"
+            android:layout_above="@+id/view2"
+            android:layout_toEndOf="@+id/view1" />
+
         <View
             android:id="@+id/view2"
             android:layout_width="fill_parent"

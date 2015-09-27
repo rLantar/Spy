@@ -42,24 +42,63 @@
                 android:layout_gravity="center_horizontal"
                 android:padding="5dp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Количество людей на точке"
-                android:id="@+id/textView"
-                android:layout_gravity="center_horizontal" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
 
-            <NumberPicker
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/fcr_numberPicer"
-                android:layout_gravity="center_horizontal"
-                android:orientation="vertical"
-                android:touchscreenBlocksFocus="false"
-                android:transitionGroup="false">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
 
-            </NumberPicker>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Со слов бригадира"
+                        android:id="@+id/textView"
+                        android:layout_gravity="center_horizontal" />
+
+                    <NumberPicker
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/fcr_brigadirCount"
+                        android:layout_gravity="center_horizontal"
+                        android:orientation="vertical"
+                        android:touchscreenBlocksFocus="false"
+                        android:transitionGroup="false">
+
+                    </NumberPicker>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Рельное количество"
+                        android:id="@+id/textView9"
+                        android:layout_gravity="center_horizontal" />
+
+                    <NumberPicker
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/fcr_numberPicer"
+                        android:layout_gravity="center_horizontal"
+                        android:orientation="vertical"
+                        android:touchscreenBlocksFocus="false"
+                        android:transitionGroup="false" >
+
+                    </NumberPicker>
+                </LinearLayout>
+            </LinearLayout>
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -91,8 +130,9 @@
 
             <LinearLayout
                 android:orientation="horizontal"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent">
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal">
 
                 <NumberPicker
                     android:layout_width="wrap_content"
@@ -255,6 +295,166 @@
                 android:numStars="3"
                 android:visibility="gone" />
 
+            <RatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ratingBar30"
+                android:layout_gravity="center_horizontal"
+                android:numStars="3"
+                android:visibility="gone" />
+
+            <RatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ratingBar11"
+                android:layout_gravity="center_horizontal"
+                android:numStars="3"
+                android:visibility="gone" />
+
+            <RatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ratingBar12"
+                android:layout_gravity="center_horizontal"
+                android:numStars="3"
+                android:visibility="gone" />
+
+            <RatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ratingBar13"
+                android:layout_gravity="center_horizontal"
+                android:numStars="3"
+                android:visibility="gone" />
+
+            <RatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ratingBar15"
+                android:layout_gravity="center_horizontal"
+                android:numStars="3"
+                android:visibility="gone" />
+
+            <RatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ratingBar14"
+                android:layout_gravity="center_horizontal"
+                android:numStars="3"
+                android:visibility="gone" />
+
+            <RatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ratingBar16"
+                android:layout_gravity="center_horizontal"
+                android:numStars="3"
+                android:visibility="gone" />
+
+            <RatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ratingBar17"
+                android:layout_gravity="center_horizontal"
+                android:numStars="3"
+                android:visibility="gone" />
+
+            <RatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ratingBar18"
+                android:layout_gravity="center_horizontal"
+                android:numStars="3"
+                android:visibility="gone" />
+
+            <RatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ratingBar19"
+                android:layout_gravity="center_horizontal"
+                android:numStars="3"
+                android:visibility="gone" />
+
+            <RatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ratingBar20"
+                android:layout_gravity="center_horizontal"
+                android:numStars="3"
+                android:visibility="gone" />
+
+            <RatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ratingBar21"
+                android:layout_gravity="center_horizontal"
+                android:numStars="3"
+                android:visibility="gone" />
+
+            <RatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ratingBar23"
+                android:layout_gravity="center_horizontal"
+                android:numStars="3"
+                android:visibility="gone" />
+
+            <RatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ratingBar22"
+                android:layout_gravity="center_horizontal"
+                android:numStars="3"
+                android:visibility="gone" />
+
+            <RatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ratingBar24"
+                android:layout_gravity="center_horizontal"
+                android:numStars="3"
+                android:visibility="gone" />
+
+            <RatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ratingBar25"
+                android:layout_gravity="center_horizontal"
+                android:numStars="3"
+                android:visibility="gone" />
+
+            <RatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ratingBar26"
+                android:layout_gravity="center_horizontal"
+                android:numStars="3"
+                android:visibility="gone" />
+
+            <RatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ratingBar27"
+                android:layout_gravity="center_horizontal"
+                android:numStars="3"
+                android:visibility="gone" />
+
+            <RatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ratingBar29"
+                android:layout_gravity="center_horizontal"
+                android:numStars="3"
+                android:visibility="gone" />
+
+            <RatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ratingBar28"
+                android:layout_gravity="center_horizontal"
+                android:numStars="3"
+                android:visibility="gone" />
+
             <View
                 android:id="@+id/view2"
                 android:layout_width="1dp"
@@ -400,7 +600,8 @@
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:hint="Ссылка на фото, или видео"
-                android:gravity="center_horizontal" />
+                android:gravity="center_horizontal"
+                android:visibility="gone" />
 
             <View
                 android:id="@+id/view12"

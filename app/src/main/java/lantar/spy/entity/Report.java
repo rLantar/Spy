@@ -24,6 +24,9 @@ public class Report {
     private String violationsMarks;
     private int brigade;
     private Date createAt;
+    private String area;
+    private int brigadirCount;
+    private int announcedCount;
 
 
     public Report(String start, String finish, String objectId, String name, int number, int countMember, String raiting, int route, String descrioption, boolean violation) {
@@ -37,6 +40,30 @@ public class Report {
         this.route = route;
         this.descrioption = descrioption;
         this.violation = violation;
+    }
+
+    public String getArea() {
+        return area;
+    }
+
+    public void setArea(String area) {
+        this.area = area;
+    }
+
+    public int getBrigadirCount() {
+        return brigadirCount;
+    }
+
+    public void setBrigadirCount(int brigadirCount) {
+        this.brigadirCount = brigadirCount;
+    }
+
+    public int getAnnouncedCount() {
+        return announcedCount;
+    }
+
+    public void setAnnouncedCount(int announcedCount) {
+        this.announcedCount = announcedCount;
     }
 
     public Date getCreateAt() {

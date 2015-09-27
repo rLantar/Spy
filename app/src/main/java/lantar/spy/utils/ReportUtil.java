@@ -14,27 +14,34 @@ public class ReportUtil {
 
     public static ParseObject getParseReport(Report report){
         ParseObject parseReport = new ParseObject(Constants.REPORT_REPORT + "_" + new Date().getMonth() + "_" + new Date().getDate());
+        if(report.getName() != null)
         parseReport.put(Constants.REPORT_NAME, report.getName());
         parseReport.put(Constants.REPORT_START, report.getStart());
         parseReport.put(Constants.REPORT_FINISH, report.getFinish());
-        parseReport.put(Constants.REPORT_COUNT_MEMBER, report.getCountMember());
+        parseReport.put(Constants.REPORT_REAL_COUNT_MEMBER, report.getCountMember());
         parseReport.put(Constants.REPORT_DESCRIPTION, report.getDescrioption());
         parseReport.put(Constants.REPORT_VIOLATION, report.isViolation());
         parseReport.put(Constants.REPORT_RAITING, report.getRaiting());
+        if(report.getNumber() != 0)
         parseReport.put(Constants.REPORT_NUMBER, report.getNumber());
         parseReport.put(Constants.REPORT_ROUTE, report.getRoute());
         if(report.getSpyName() != null)
         parseReport.put(Constants.REPORT_SPY, report.getSpyName());
         if(report.getViolationsMarks() != null)
         parseReport.put(Constants.REPORT_VIOLATIONS_MARKS, report.getViolationsMarks());
-        if(report.getUrlFile() != "")
+        if(report.getUrlFile() != null)
         parseReport.put(Constants.REPORT_URL_FILE, report.getUrlFile());
-        if(report.getUlrSpyRepozitory() != "")
+        if(report.getUlrSpyRepozitory() != null)
         parseReport.put(Constants.REPORT_URL_SPY, report.getUlrSpyRepozitory());
         if(report.getViolationDescriprion() != null)
         parseReport.put(Constants.REPORT_VIOLATION_DESCRIPTION, report.getViolationDescriprion());
         parseReport.put(Constants.REPORT_BRIGADE, report.getBrigade());
-
+        if(report.getArea() != null)
+        parseReport.put(Constants.ROUTE_AREA, report.getArea());
+        if(report.getAnnouncedCount() != 0)
+        parseReport.put(Constants.REPORT_ANNOUNCED_COUNT_MEMBER, report.getAnnouncedCount());
+        if(report.getBrigadirCount() != 0)
+        parseReport.put(Constants.REPORT_BRIGADIR_COUNT_MEMBER, report.getBrigadirCount());
 
         return parseReport;
     }
@@ -45,7 +52,8 @@ public class ReportUtil {
         report.setName(parseRepot.getString(Constants.REPORT_NAME));
         report.setStart(parseRepot.getString(Constants.REPORT_START));
         report.setFinish(parseRepot.getString(Constants.REPORT_FINISH));
-        report.setCountMember(parseRepot.getInt(Constants.REPORT_COUNT_MEMBER));
+        report.setCountMember(parseRepot.getInt(Constants.REPORT_REAL_COUNT_MEMBER));
+        report.setBrigadirCount(parseRepot.getInt(Constants.REPORT_BRIGADIR_COUNT_MEMBER));
         report.setDescrioption(parseRepot.getString(Constants.REPORT_DESCRIPTION));
         report.setViolation(parseRepot.getBoolean(Constants.REPORT_VIOLATION));
         report.setRaiting(parseRepot.getString(Constants.REPORT_RAITING));
