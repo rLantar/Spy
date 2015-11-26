@@ -3,6 +3,8 @@ package lantar.spy.fragment;
 import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -38,10 +40,12 @@ public class ReadReportFragment extends Fragment {
     TextView count;
     TextView timeStart;
     TextView timeFinish;
+    TextView knowlendgeAndSpeech;
     TextView raiting;
     TextView violation;
     TextView description;
-    TextView url;
+    TextView tv_Url;
+    TextView tv_KnowledgeAndSpeech;
     Button back;
     Button fix;
 
@@ -56,10 +60,12 @@ public class ReadReportFragment extends Fragment {
         count = (TextView) v.findViewById(R.id.rrf_countppl);
         timeStart = (TextView) v.findViewById(R.id.rrf_start);
         timeFinish = (TextView) v.findViewById(R.id.rrf_finish);
+        knowlendgeAndSpeech = (TextView) v.findViewById(R.id.rrf_tvKnowledgeAndSpeech);
+        tv_KnowledgeAndSpeech = (TextView) v.findViewById(R.id.rrf_tv_KnowlefgeAndSpeech);
         raiting = (TextView) v.findViewById(R.id.rrf_raiting);
         violation = (TextView) v.findViewById(R.id.rrf_violation);
         description = (TextView) v.findViewById(R.id.rrf_description);
-        url = (TextView) v.findViewById(R.id.rrf_url);
+        tv_Url = (TextView) v.findViewById(R.id.rrf_url);
         back = (Button) v.findViewById(R.id.rrf_btnBack);
         fix = (Button) v.findViewById(R.id.rrf_btnFix);
 
@@ -85,6 +91,16 @@ public class ReadReportFragment extends Fragment {
                 Fragment fragment = new FixReportFragment();
                 fm.beginTransaction()
                         .replace(R.id.fragment_container, fragment).commit();
+            }
+        });
+
+        tv_Url.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(tv_Url.getText().toString()));
+                startActivity(i);
             }
         });
 
@@ -124,14 +140,21 @@ public class ReadReportFragment extends Fragment {
                 }
 
         name.setText(MainActivity.getRouteNumber() + ". " +MainActivity.getRouteName());
-        count.setText(count.getText().toString() + report.getCountMember());
+        count.setText(count.getText().toString() + report.getCountMember() + " из " + report.getBrigadirCount()+ " заявленных бригадиром");
         timeStart.setText(timeStart.getText().toString() + report.getStart());
         timeFinish.setText(timeFinish.getText().toString() + report.getFinish());
         raiting.setText(report.getRaiting());
         violation.setText(report.getViolationDescriprion());
         description.setText(report.getDescrioption());
-        url.setText(report.getUrlFile());
-
+        if(report.isLili())
+            description.setText("Лиля одобрила.\n"  + report.getDescrioption());
+        tv_Url.setText(report.getUrlFile());
+        if(report.isCube()) {
+            knowlendgeAndSpeech.setText(report.getKnowlege() + ", " + report.getSpeech());
+        }else{
+            tv_KnowledgeAndSpeech.setVisibility(TextView.GONE);
+            knowlendgeAndSpeech.setVisibility(TextView.GONE);
+        }
     }
 
 

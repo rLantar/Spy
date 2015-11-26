@@ -27,6 +27,11 @@ public class Report {
     private String area;
     private int brigadirCount;
     private int announcedCount;
+    private String brigadirName;
+    private boolean cube;
+    private String knowlege;
+    private String speech;
+    private boolean lili;
 
 
     public Report(String start, String finish, String objectId, String name, int number, int countMember, String raiting, int route, String descrioption, boolean violation) {
@@ -40,6 +45,47 @@ public class Report {
         this.route = route;
         this.descrioption = descrioption;
         this.violation = violation;
+
+    }
+
+    public boolean isLili() {
+        return lili;
+    }
+
+    public void setLili(boolean lili) {
+        this.lili = lili;
+    }
+
+    public boolean isCube() {
+        return cube;
+    }
+
+    public void setCube(boolean cube) {
+        this.cube = cube;
+    }
+
+    public String getKnowlege() {
+        return knowlege;
+    }
+
+    public void setKnowlege(String knowlege) {
+        this.knowlege = knowlege;
+    }
+
+    public String getSpeech() {
+        return speech;
+    }
+
+    public void setSpeech(String speech) {
+        this.speech = speech;
+    }
+
+    public String getBrigadirName() {
+        return brigadirName;
+    }
+
+    public void setBrigadirName(String brigadirName) {
+        this.brigadirName = brigadirName;
     }
 
     public String getArea() {

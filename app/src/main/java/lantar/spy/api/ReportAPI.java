@@ -62,6 +62,7 @@ public class ReportAPI {
 
     public void read(){
         ParseQuery<ParseObject> query = ParseQuery.getQuery(Constants.REPORT_REPORT + "_" + new Date().getMonth() + "_" + new Date().getDate());
+        query.setLimit(999);
         String role = ParseUser.getCurrentUser().getString(Constants.USER_ROLE);
         if(role.equals(Constants.USER_ROLE_SPY))
             query.whereEqualTo(Constants.REPORT_SPY, ParseUser.getCurrentUser().get(Constants.USER_FIO));

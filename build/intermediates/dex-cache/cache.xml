@@ -2,27 +2,6 @@
 <items version="2" >
 
     <item
-        jar="D:\GitHub\Spy\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.0\classes.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="4fcf0b1879f8caf497c073e1432d398e9e2988c1">
-        <dex dex="D:\GitHub\Spy\app\build\intermediates\pre-dexed\debug\classes-74aed90de0a6d272db358ad6e28286d22bdb0b12.jar" />
-    </item>
-    <item
-        jar="C:\Users\Lantar\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.0.0\support-annotations-23.0.0.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="990e7f98a7bad86a40b1f0bcfeb039023afd0839">
-        <dex dex="D:\GitHub\Spy\app\build\intermediates\pre-dexed\debug\support-annotations-23.0.0-0456276af942531cd0abcc8210f1ec0e818cd98c.jar" />
-    </item>
-    <item
-        jar="D:\GitHub\Spy\app\libs\Parse-1.10.1.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="181b435832725bec96c11ff568bdfbccdacab944">
-        <dex dex="D:\GitHub\Spy\app\build\intermediates\pre-dexed\debug\Parse-1.10.1-5ec65c1510b26b2e6202fb07062b74cb765a8fda.jar" />
-    </item>
-    <item
         jar="D:\GitHub\Spy\app\libs\bolts-android-1.2.1.jar"
         jumboMode="false"
         revision="23.0.0"
@@ -30,18 +9,18 @@
         <dex dex="D:\GitHub\Spy\app\build\intermediates\pre-dexed\debug\bolts-android-1.2.1-95252cf8231304ac4dd9b0cc86a1185fe9e6affb.jar" />
     </item>
     <item
-        jar="D:\GitHub\Spy\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.0\classes.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="8413c27b45b7fe61dca4a98159f65e2cee215f5a">
-        <dex dex="D:\GitHub\Spy\app\build\intermediates\pre-dexed\debug\classes-25097896e7a084e392f519fafe015e348fdcaade.jar" />
-    </item>
-    <item
-        jar="D:\GitHub\Spy\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.0\libs\internal_impl-23.0.0.jar"
+        jar="D:\GitHub\Spy\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.0\jars\libs\internal_impl-23.0.0.jar"
         jumboMode="false"
         revision="23.0.0"
         sha1="8bd336eeae661e8311330284897ee07f8ebaa297">
-        <dex dex="D:\GitHub\Spy\app\build\intermediates\pre-dexed\debug\internal_impl-23.0.0-97d61930eaaf12d7b579561987b4baf33529564f.jar" />
+        <dex dex="D:\GitHub\Spy\app\build\intermediates\pre-dexed\debug\internal_impl-23.0.0-6c402e37cf395eb4c5b9cdc843f44ba89a3651f2.jar" />
+    </item>
+    <item
+        jar="D:\GitHub\Spy\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="4fcf0b1879f8caf497c073e1432d398e9e2988c1">
+        <dex dex="D:\GitHub\Spy\app\build\intermediates\pre-dexed\debug\classes-0d459579fd9a2b24b1d2292f4c2781b6ec781ea1.jar" />
     </item>
     <item
         jar="D:\GitHub\Spy\app\libs\ParseCrashReporting-1.10.1.jar"
@@ -51,11 +30,25 @@
         <dex dex="D:\GitHub\Spy\app\build\intermediates\pre-dexed\debug\ParseCrashReporting-1.10.1-de9e4104aeb91fb2f70c4405321a01366e65c0b9.jar" />
     </item>
     <item
-        jar="D:\GitHub\Spy\app\libs\bolts-android-1.2.1-javadoc.jar"
+        jar="D:\GitHub\Spy\app\libs\Parse-1.10.1.jar"
         jumboMode="false"
         revision="23.0.0"
-        sha1="fce248b761d538323d85bbe6f0a1bde1b1a09227">
-        <dex dex="D:\GitHub\Spy\app\build\intermediates\pre-dexed\debug\bolts-android-1.2.1-javadoc-50295cff187575c64276c7ed22306ec3f848f1ed.jar" />
+        sha1="181b435832725bec96c11ff568bdfbccdacab944">
+        <dex dex="D:\GitHub\Spy\app\build\intermediates\pre-dexed\debug\Parse-1.10.1-5ec65c1510b26b2e6202fb07062b74cb765a8fda.jar" />
+    </item>
+    <item
+        jar="C:\Users\Lantar\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.0.0\support-annotations-23.0.0.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="990e7f98a7bad86a40b1f0bcfeb039023afd0839">
+        <dex dex="D:\GitHub\Spy\app\build\intermediates\pre-dexed\debug\support-annotations-23.0.0-0456276af942531cd0abcc8210f1ec0e818cd98c.jar" />
+    </item>
+    <item
+        jar="D:\GitHub\Spy\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="8413c27b45b7fe61dca4a98159f65e2cee215f5a">
+        <dex dex="D:\GitHub\Spy\app\build\intermediates\pre-dexed\debug\classes-51557d3621ac03ff48ddc00457b9ae51bed1412d.jar" />
     </item>
 
 </items>

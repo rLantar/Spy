@@ -37,6 +37,10 @@ public class Constants {
     public final static String REPORT_URL_SPY = "UrlSpyRepozitory";
     public final static String REPORT_VIOLATIONS_MARKS = "ViolationMarks";
     public final static String REPORT_BRIGADE = "Brigade";
+    public final static String REPORT_SPEECH = "Speech";
+    public final static String REPORT_KNOWLEDGE = "Knowledge";
+    public final static String REPORT_LILI = "Lili";
+
 
 
     public final static String ROUTE_NUMBER = "Number";
@@ -46,6 +50,7 @@ public class Constants {
     public final static String ROUTE_BRIGADIR_NAME = "BrigadirName";
     public final static String ROUTE_BRIGADIR_NUMBER = "BrigadirNumber";
     public final static String ROUTE_TIME = "Time";
+    public final static String ROUTE_CUBE = "Cube";
 
 
 

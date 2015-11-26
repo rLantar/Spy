@@ -42,6 +42,21 @@ public class ReportUtil {
         parseReport.put(Constants.REPORT_ANNOUNCED_COUNT_MEMBER, report.getAnnouncedCount());
         if(report.getBrigadirCount() != 0)
         parseReport.put(Constants.REPORT_BRIGADIR_COUNT_MEMBER, report.getBrigadirCount());
+        if(report.getBrigadirName() != null)
+            parseReport.put(Constants.ROUTE_BRIGADIR_NAME, report.getBrigadirName());
+        if(report.isCube())
+            parseReport.put(Constants.ROUTE_CUBE, true);
+        else parseReport.put(Constants.ROUTE_CUBE, false);
+        if(report.getKnowlege() != null)
+            parseReport.put(Constants.REPORT_KNOWLEDGE, report.getKnowlege());
+        if(report.getSpeech() != null)
+            parseReport.put(Constants.REPORT_SPEECH, report.getSpeech());
+        if(report.isLili())
+            parseReport.put(Constants.REPORT_LILI, true);
+        else
+            parseReport.put(Constants.REPORT_LILI, false);
+
+
 
         return parseReport;
     }
@@ -66,8 +81,16 @@ public class ReportUtil {
         report.setViolationsMarks(parseRepot.getString(Constants.REPORT_VIOLATIONS_MARKS));
         report.setBrigade(parseRepot.getInt(Constants.REPORT_BRIGADE));
         report.setCreateAt(parseRepot.getCreatedAt());
-
-
+        report.setCube(parseRepot.getBoolean(Constants.ROUTE_CUBE));
+        report.setLili(parseRepot.getBoolean(Constants.REPORT_LILI));
+        if(parseRepot.getString(Constants.REPORT_KNOWLEDGE) != null)
+        report.setKnowlege( parseRepot.getString(Constants.REPORT_KNOWLEDGE));
+        if(parseRepot.getString(Constants.REPORT_SPEECH) != null)
+        report.setSpeech( parseRepot.getString(Constants.REPORT_SPEECH));
+        if(parseRepot.getString(Constants.ROUTE_AREA) != null)
+            report.setArea(parseRepot.getString(Constants.ROUTE_AREA));
+        else
+            report.setArea("Район не указан ");
         return report;
     }
 }

@@ -13,6 +13,7 @@ public class Route {
     private String numberBrigadir;
     private String area;
     private String time;
+    private boolean cube = false;
 
 
     public Route(String objectId, int number, String name, int route) {
@@ -87,6 +88,14 @@ public class Route {
 
     public void setRoute(int route) {
         this.route = route;
+    }
+
+    public boolean isCube() {
+        return cube;
+    }
+
+    public void setCube(boolean cube) {
+        this.cube = cube;
     }
 
     @Override

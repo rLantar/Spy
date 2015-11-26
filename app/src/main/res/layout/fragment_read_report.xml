@@ -93,6 +93,34 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Знания , Подача"
+                android:id="@+id/rrf_tv_KnowlefgeAndSpeech"
+                android:layout_gravity="center_horizontal" />
+
+            <View
+                android:id="@+id/view01"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Знания , Подача"
+                android:id="@+id/rrf_tvKnowledgeAndSpeech"
+                android:layout_gravity="center_horizontal" />
+
+            <View
+                android:id="@+id/view02"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Активность"
                 android:id="@+id/textView8"
                 android:layout_gravity="center_horizontal" />
@@ -159,7 +187,8 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Ссылка"
                 android:id="@+id/rrf_url"
-                android:layout_gravity="center_horizontal" />
+                android:layout_gravity="center_horizontal"
+                android:clickable="false" />
             <View
                 android:id="@+id/view9"
                 android:layout_width="15dp"

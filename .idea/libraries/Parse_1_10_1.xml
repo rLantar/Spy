@@ -1,8 +1,5 @@
 <component name="libraryTable">
   <library name="Parse-1.10.1">
-    <ANNOTATIONS>
-      <root url="file://$PROJECT_DIR$" />
-    </ANNOTATIONS>
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/app/libs/Parse-1.10.1.jar!/" />
     </CLASSES>

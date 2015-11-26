@@ -32,6 +32,50 @@
             android:layout_below="@+id/item_listTitle"
             android:layout_alignParentEnd="true" />
 
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Знания"
+                android:id="@+id/ilr_textKnowledge"
+                android:layout_gravity="center_horizontal" />
+
+            <RatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ilr_ratingKnowledge"
+                android:layout_gravity="center_horizontal"
+                android:isIndicator="true"
+                android:numStars="3" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Подача"
+                android:id="@+id/ilr_textSpeech"
+                android:layout_gravity="center_horizontal" />
+
+            <RatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ilr_ratingSpeech"
+                android:layout_gravity="center_horizontal"
+                android:isIndicator="true"
+                android:numStars="3" />
+        </LinearLayout>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

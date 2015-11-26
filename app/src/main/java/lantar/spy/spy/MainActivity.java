@@ -35,6 +35,8 @@ public class MainActivity extends ActionBarActivity
     private static String reportId;
     private static String area;
     private static int annoncedCount;
+    private static String BrigadirName;
+    private static boolean cube;
     private static Route route = new Route();
 
     /**
@@ -46,6 +48,9 @@ public class MainActivity extends ActionBarActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ParseUser.getCurrentUser().put("Version","1.5.0");
+        ParseUser.getCurrentUser().saveInBackground();
 
 
 
@@ -119,33 +124,7 @@ public class MainActivity extends ActionBarActivity
     }
 
 
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        if (!mNavigationDrawerFragment.isDrawerOpen()) {
-//            // Only show items in the action bar relevant to this screen
-//            // if the drawer is not showing. Otherwise, let the drawer
-//            // decide what to show in the action bar.
-//            getMenuInflater().inflate(R.menu.menu_main, menu);
-//            restoreActionBar();
-//            return true;
-//        }
-//        return super.onCreateOptionsMenu(menu);
-//    }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        // Handle action bar item clicks here. The action bar will
-//        // automatically handle clicks on the Home/Up button, so long
-//        // as you specify a parent activity in AndroidManifest.xml.
-//        int id = item.getItemId();
-//
-//        //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
-//
-//        return super.onOptionsItemSelected(item);
-//    }
+
 
     /**
      * A placeholder fragment containing a simple view.
@@ -259,5 +238,21 @@ public class MainActivity extends ActionBarActivity
 
     public static void setReportId(String reportId) {
         MainActivity.reportId = reportId;
+    }
+
+    public static String getBrigadirName() {
+        return BrigadirName;
+    }
+
+    public static void setBrigadirName(String brigadirName) {
+        BrigadirName = brigadirName;
+    }
+
+    public static boolean isCube() {
+        return cube;
+    }
+
+    public static void setCube(boolean cube) {
+        MainActivity.cube = cube;
     }
 }

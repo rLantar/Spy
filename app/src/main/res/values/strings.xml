@@ -23,6 +23,9 @@
     <string name="bad_email">E-mail указан не верно</string>
     <string name="email_exists">Email уже существует</string>
 
+    <string name="report_false_time">Внимательно указывай время!</string>
+    <string name="report_false_KnowledgeAndSpeech">Внимательно указывай Знания и подачу!</string>
+    <string name="report_null_activists">Укажите примечание, почему на точке не было активистов!</string>
     <string name="report_create">Отчет сохранен!</string>
     <string name="report_updateMessage">Обязательно укажите заново нарушения!</string>
     <string name="report_update">Отчет обновлён!</string>
@@ -36,7 +39,7 @@
     <string name="report_violation6">Распитие спиртных напитков на рабочем месте</string>
     <string name="report_violation7">Приём пищи в атрибутике</string>
     <string name="report_violation8">Разговор по телефону в рабочие время более 2-х минут</string>
-    <string name="report_violation9">Раздача АПМ без предусмотренной инструкцией активиста фразой</string>
+    <string name="report_violation9">Бездействие более 2х минут</string>
     <string name="report_violation10">Курение в атрибутике</string>
     <string name="report_violation11">Отсутствие на рабочем месте более 15 минут</string>
 

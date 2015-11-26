@@ -31,6 +31,12 @@ public class RouteUtil {
             route.setTime("Время не указано");
         else
         route.setTime(parseRoute.getString(Constants.ROUTE_TIME));
+        if(parseRoute.getBoolean(Constants.ROUTE_CUBE))
+            route.setCube(true);
+        else route.setCube(false);
+
         return route;
+
+
     }
 }

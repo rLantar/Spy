@@ -94,13 +94,22 @@ public class CreateReportFragment extends Fragment {
     private NumberPicker hourPickerFinish;
     private NumberPicker minutePickierFinish;
     private CheckBox checkBoxViolation;
+    private TextView tv_activity;
 
     private int countPiple;
     private ProgressBar progressBar;
 
+//    CUBE REPORT
+
+    private TextView tv_knowledge;
+    private TextView tv_speech;
+    private RatingBar ratingKnowledge;
+    private RatingBar ratingSpeech;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_create_report, container, false);
+        tv_activity = (TextView) v.findViewById(R.id.fcr_tvAtivity);
         btnCreate = (Button) v.findViewById(R.id.crf_btnCreate);
         progressBar = (ProgressBar) v.findViewById(R.id.fcr_progressBar);
         name = MainActivity.getRouteName();
@@ -108,6 +117,166 @@ public class CreateReportFragment extends Fragment {
         et_description = (EditText) v.findViewById(R.id.crf_description);
         et_photoLink = (EditText) v.findViewById(R.id.crf_photolink);
         textName = (TextView) v.findViewById(R.id.fcr_textName);
+        tv_knowledge = (TextView) v.findViewById(R.id.fcr_tvKnowledge);
+        tv_speech = (TextView) v.findViewById(R.id.fcr_tvSpeech);
+        ratingKnowledge = (RatingBar) v.findViewById(R.id.fcr_ratingKnowledge);
+        ratingSpeech = (RatingBar) v.findViewById(R.id.fcr_ratingSpeech);
+
+
+
+
+        textName.setText(number + "человек с " + name.toString());
+
+       setValueNumberPicker(v);
+
+        numberPicker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            }
+        });
+
+        checkBoxViolation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (checkBoxViolation.isChecked()) {
+                    setVisibilistyCheckBox();
+                }
+            }
+        });
+
+        numberPicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+            @Override
+            public void onValueChange(NumberPicker numberPicker, int i, int i2) {
+                setVisibility(i2);
+            }
+
+        });
+
+        btnCreate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean time ;
+                boolean zero = false;
+                int minuteStart = minutePickierStart.getValue();
+                int minuteFinish =minutePickierFinish.getValue();
+                int hourStart = hourPickerStart.getValue();
+                int hourFinish = hourPickerFinish.getValue();
+
+                if(ParseUser.getCurrentUser().getNumber(Constants.USER_BRIGADE).intValue() > 3)
+                    zero = true;
+                else {
+                    if (ratingKnowledge.getRating() == 0 || ratingSpeech.getRating() == 0) {
+                        zero = false;
+                        Toast.makeText(getActivity(), getResources().getString(R.string.report_false_KnowledgeAndSpeech), Toast.LENGTH_LONG).show();
+                    } else
+                        zero = true;
+                }
+
+
+
+                if(hourStart <= hourFinish){
+                    if(hourStart == hourFinish) {
+                        if (minuteStart <= minuteFinish)
+                            time = true;
+                        else time = false;
+                    }else time = true;
+                }
+                else time = false;
+                if(time)
+                if(minuteStart == minuteFinish && hourStart == hourFinish)
+                    time = false;
+                else time = true;
+
+                if(numberPicker.getValue() == 0 && et_description.getText().toString().isEmpty())
+                    Toast.makeText(getActivity(), getResources().getString(R.string.report_null_activists), Toast.LENGTH_LONG).show();
+                else {
+                   if(time)
+                       if(zero)
+                    createReport();
+                   else
+                       Toast.makeText(getActivity(), getResources().getString(R.string.report_false_time), Toast.LENGTH_LONG).show();
+                }
+
+
+            }
+        });
+
+
+
+        return v;
+
+
+    }
+
+
+    private void cubeReport(){
+//       numberPicker = (NumberPicker) v.findViewById(R.id.fcr_numberPicer);
+
+        numberPicker.setMaxValue(5);
+        numberPicker.setMinValue(0);
+
+        numberPickerBrigadir.setMaxValue(5);
+        numberPickerBrigadir.setMinValue(0);
+
+        tv_knowledge.setVisibility(TextView.VISIBLE);
+        tv_speech.setVisibility(TextView.VISIBLE);
+        ratingKnowledge.setVisibility(RatingBar.VISIBLE);
+        ratingSpeech.setVisibility(RatingBar.VISIBLE);
+
+    }
+
+
+
+    private void createReport(){
+        Report report = new Report();
+        report.setName(MainActivity.getRouteName());
+        report.setNumber(MainActivity.getRouteNumber());
+        report.setSpyName(ParseUser.getCurrentUser().getString(Constants.USER_FIO));
+        report.setRoute(ParseUser.getCurrentUser().getInt(Constants.USER_ROUTE));
+        report.setRaiting(allRating());
+        report.setCountMember(numberPicker.getValue());
+        report.setUlrSpyRepozitory(ParseUser.getCurrentUser().getString(Constants.USER_URL));
+
+        report.setArea(MainActivity.getArea());
+        report.setAnnouncedCount(MainActivity.getAnnoncedCount());
+        report.setBrigadirCount(numberPickerBrigadir.getValue());
+        int hourStart = hourPickerStart.getValue();
+        int minuteStart = minutePickierStart.getValue();
+        int hourFinish = hourPickerFinish.getValue();
+        int minuteFinish = minutePickierFinish.getValue();
+        report.setStart(addZerro(hourStart) + ":" + addZerro(minuteStart));
+        report.setFinish(addZerro(hourFinish) + ":" + addZerro(minuteFinish));
+        report.setBrigadirName(MainActivity.getBrigadirName());
+        report.setCube(MainActivity.isCube());
+
+        if(ParseUser.getCurrentUser().getInt(Constants.USER_BRIGADE) < 4){
+            report.setCube(true);
+        }else{
+            report.setCube(false);
+        }
+
+        report.setViolation(checkBoxViolation.isChecked());
+//        if (checkBoxViolation.isChecked()) {
+            report.setViolationDescriprion(violationCheked());
+        if(report.getViolationDescriprion() != null)
+            report.setUrlFile(ParseUser.getCurrentUser().getString(Constants.USER_URL));
+
+//        }
+
+        report.setDescrioption(et_description.getText().toString());
+        report.setViolationsMarks(violationChekedSetMarks());
+        report.setBrigade(ParseUser.getCurrentUser().getInt(Constants.USER_BRIGADE));
+        report.setKnowlege("" + ratingKnowledge.getRating());
+        report.setSpeech("" + ratingSpeech.getRating());
+        report.setLili(false);
+        ReportAPI reportAPI = new ReportAPI(createReportHandler);
+        reportAPI.create(report);
+        btnCreate.setEnabled(false);
+        progressBar.setVisibility(ProgressBar.VISIBLE);
+    }
+
+    private void setValueNumberPicker(View v){
+
         ratingBar1 = (RatingBar) v.findViewById(R.id.ratingBar1);
         ratingBar2 = (RatingBar) v.findViewById(R.id.ratingBar2);
         ratingBar3 = (RatingBar) v.findViewById(R.id.ratingBar3);
@@ -153,6 +322,8 @@ public class CreateReportFragment extends Fragment {
         checkBox10 = (CheckBox) v.findViewById(R.id.checkBox10);
         checkBox11 = (CheckBox) v.findViewById(R.id.checkBox11);
 
+        ratingKnowledge.setStepSize(1);
+        ratingSpeech.setStepSize(1);
         ratingBar1.setStepSize(1);
         ratingBar2.setStepSize(1);
         ratingBar3.setStepSize(1);
@@ -184,6 +355,8 @@ public class CreateReportFragment extends Fragment {
         ratingBar29.setStepSize(1);
         ratingBar30.setStepSize(1);
 
+
+//        ratingSpeech.setRating(1);
         ratingBar1.setRating(1);
         ratingBar2.setRating(1);
         ratingBar3.setRating(1);
@@ -215,9 +388,6 @@ public class CreateReportFragment extends Fragment {
         ratingBar29.setRating(1);
         ratingBar30.setRating(1);
 
-
-        textName.setText(number + "человек с " + name.toString());
-
         numberPicker = (NumberPicker) v.findViewById(R.id.fcr_numberPicer);
 
         numberPicker.setMaxValue(30);
@@ -246,215 +416,161 @@ public class CreateReportFragment extends Fragment {
         minutePickierFinish.setMaxValue(59);
         minutePickierFinish.setMinValue(0);
         minutePickierFinish.setValue(Calendar.getInstance().get(Calendar.MINUTE));
+    }
 
-        numberPicker.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.i(Constants.LOG, "testing numberPicker");
-            }
-        });
+    private void setVisibilistyCheckBox(){
+        checkBox1.setVisibility(CheckBox.VISIBLE);
+        checkBox2.setVisibility(CheckBox.VISIBLE);
+        checkBox3.setVisibility(CheckBox.VISIBLE);
+        checkBox4.setVisibility(CheckBox.VISIBLE);
+        checkBox5.setVisibility(CheckBox.VISIBLE);
+        checkBox6.setVisibility(CheckBox.VISIBLE);
+        checkBox7.setVisibility(CheckBox.VISIBLE);
+        checkBox8.setVisibility(CheckBox.VISIBLE);
+        checkBox9.setVisibility(CheckBox.VISIBLE);
+        checkBox10.setVisibility(CheckBox.VISIBLE);
+        checkBox11.setVisibility(CheckBox.VISIBLE);
+    }
 
-        checkBoxViolation.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (checkBoxViolation.isChecked()) {
-                    checkBox1.setVisibility(CheckBox.VISIBLE);
-                    checkBox2.setVisibility(CheckBox.VISIBLE);
-                    checkBox3.setVisibility(CheckBox.VISIBLE);
-                    checkBox4.setVisibility(CheckBox.VISIBLE);
-                    checkBox5.setVisibility(CheckBox.VISIBLE);
-                    checkBox6.setVisibility(CheckBox.VISIBLE);
-                    checkBox7.setVisibility(CheckBox.VISIBLE);
-                    checkBox8.setVisibility(CheckBox.VISIBLE);
-//                    checkBox9.setVisibility(CheckBox.VISIBLE);
-                    checkBox10.setVisibility(CheckBox.VISIBLE);
-                    checkBox11.setVisibility(CheckBox.VISIBLE);
-                }
-            }
-        });
+    private void setVisibility(int i2){
 
-        numberPicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
-            @Override
-            public void onValueChange(NumberPicker numberPicker, int i, int i2) {
-                ratingBar1.setVisibility(RatingBar.GONE);
-                ratingBar2.setVisibility(RatingBar.GONE);
-                ratingBar3.setVisibility(RatingBar.GONE);
-                ratingBar4.setVisibility(RatingBar.GONE);
-                ratingBar5.setVisibility(RatingBar.GONE);
-                ratingBar6.setVisibility(RatingBar.GONE);
-                ratingBar7.setVisibility(RatingBar.GONE);
-                ratingBar8.setVisibility(RatingBar.GONE);
-                ratingBar9.setVisibility(RatingBar.GONE);
-                ratingBar10.setVisibility(RatingBar.GONE);
-                ratingBar11.setVisibility(RatingBar.GONE);
-                ratingBar12.setVisibility(RatingBar.GONE);
-                ratingBar13.setVisibility(RatingBar.GONE);
-                ratingBar14.setVisibility(RatingBar.GONE);
-                ratingBar15.setVisibility(RatingBar.GONE);
-                ratingBar16.setVisibility(RatingBar.GONE);
-                ratingBar17.setVisibility(RatingBar.GONE);
-                ratingBar18.setVisibility(RatingBar.GONE);
-                ratingBar19.setVisibility(RatingBar.GONE);
-                ratingBar20.setVisibility(RatingBar.GONE);
-                ratingBar21.setVisibility(RatingBar.GONE);
-                ratingBar22.setVisibility(RatingBar.GONE);
-                ratingBar23.setVisibility(RatingBar.GONE);
-                ratingBar24.setVisibility(RatingBar.GONE);
-                ratingBar25.setVisibility(RatingBar.GONE);
-                ratingBar26.setVisibility(RatingBar.GONE);
-                ratingBar27.setVisibility(RatingBar.GONE);
-                ratingBar28.setVisibility(RatingBar.GONE);
-                ratingBar29.setVisibility(RatingBar.GONE);
-                ratingBar30.setVisibility(RatingBar.GONE);
+        if(MainActivity.isCube())
+            cubeReport();
+
+        tv_activity.setVisibility(TextView.GONE);
+        ratingBar1.setVisibility(RatingBar.GONE);
+        ratingBar2.setVisibility(RatingBar.GONE);
+        ratingBar3.setVisibility(RatingBar.GONE);
+        ratingBar4.setVisibility(RatingBar.GONE);
+        ratingBar5.setVisibility(RatingBar.GONE);
+        ratingBar6.setVisibility(RatingBar.GONE);
+        ratingBar7.setVisibility(RatingBar.GONE);
+        ratingBar8.setVisibility(RatingBar.GONE);
+        ratingBar9.setVisibility(RatingBar.GONE);
+        ratingBar10.setVisibility(RatingBar.GONE);
+        ratingBar11.setVisibility(RatingBar.GONE);
+        ratingBar12.setVisibility(RatingBar.GONE);
+        ratingBar13.setVisibility(RatingBar.GONE);
+        ratingBar14.setVisibility(RatingBar.GONE);
+        ratingBar15.setVisibility(RatingBar.GONE);
+        ratingBar16.setVisibility(RatingBar.GONE);
+        ratingBar17.setVisibility(RatingBar.GONE);
+        ratingBar18.setVisibility(RatingBar.GONE);
+        ratingBar19.setVisibility(RatingBar.GONE);
+        ratingBar20.setVisibility(RatingBar.GONE);
+        ratingBar21.setVisibility(RatingBar.GONE);
+        ratingBar22.setVisibility(RatingBar.GONE);
+        ratingBar23.setVisibility(RatingBar.GONE);
+        ratingBar24.setVisibility(RatingBar.GONE);
+        ratingBar25.setVisibility(RatingBar.GONE);
+        ratingBar26.setVisibility(RatingBar.GONE);
+        ratingBar27.setVisibility(RatingBar.GONE);
+        ratingBar28.setVisibility(RatingBar.GONE);
+        ratingBar29.setVisibility(RatingBar.GONE);
+        ratingBar30.setVisibility(RatingBar.GONE);
 
 
-                for (int x = 0; x <= i2; x++) {
-                    countPiple = x;
-                    switch (x) {
-                        case 0:
-                            break;
-                        case 1:
-                            ratingBar1.setVisibility(RatingBar.VISIBLE);
-                            break;
-                        case 2:
-                            ratingBar2.setVisibility(RatingBar.VISIBLE);
-                            break;
-                        case 3:
-                            ratingBar3.setVisibility(RatingBar.VISIBLE);
-                            break;
-                        case 4:
-                            ratingBar4.setVisibility(RatingBar.VISIBLE);
-                            break;
-                        case 5:
-                            ratingBar5.setVisibility(RatingBar.VISIBLE);
-                            break;
-                        case 6:
-                            ratingBar6.setVisibility(RatingBar.VISIBLE);
-                            break;
-                        case 7:
-                            ratingBar7.setVisibility(RatingBar.VISIBLE);
-                            break;
-                        case 8:
-                            ratingBar8.setVisibility(RatingBar.VISIBLE);
-                            break;
-                        case 9:
-                            ratingBar9.setVisibility(RatingBar.VISIBLE);
-                            break;
-                        case 10:
-                            ratingBar10.setVisibility(RatingBar.VISIBLE);
-                            break;
-                        case 11:
-                            ratingBar11.setVisibility(RatingBar.VISIBLE);
-                            break;
-                        case 12:
-                            ratingBar12.setVisibility(RatingBar.VISIBLE);
-                            break;
-                        case 13:
-                            ratingBar13.setVisibility(RatingBar.VISIBLE);
-                            break;
-                        case 14:
-                            ratingBar14.setVisibility(RatingBar.VISIBLE);
-                            break;
-                        case 15:
-                            ratingBar15.setVisibility(RatingBar.VISIBLE);
-                            break;
-                        case 16:
-                            ratingBar16.setVisibility(RatingBar.VISIBLE);
-                            break;
-                        case 17:
-                            ratingBar17.setVisibility(RatingBar.VISIBLE);
-                            break;
-                        case 18:
-                            ratingBar18.setVisibility(RatingBar.VISIBLE);
-                            break;
-                        case 19:
-                            ratingBar19.setVisibility(RatingBar.VISIBLE);
-                            break;
-                        case 20:
-                            ratingBar20.setVisibility(RatingBar.VISIBLE);
-                            break;
-                        case 21:
-                            ratingBar21.setVisibility(RatingBar.VISIBLE);
-                            break;
-                        case 22:
-                            ratingBar22.setVisibility(RatingBar.VISIBLE);
-                            break;
-                        case 23:
-                            ratingBar23.setVisibility(RatingBar.VISIBLE);
-                            break;
-                        case 24:
-                            ratingBar24.setVisibility(RatingBar.VISIBLE);
-                            break;
-                        case 25:
-                            ratingBar25.setVisibility(RatingBar.VISIBLE);
-                            break;
-                        case 26:
-                            ratingBar26.setVisibility(RatingBar.VISIBLE);
-                            break;
-                        case 27:
-                            ratingBar27.setVisibility(RatingBar.VISIBLE);
-                            break;
-                        case 28:
-                            ratingBar28.setVisibility(RatingBar.VISIBLE);
-                            break;
-                        case 29:
-                            ratingBar29.setVisibility(RatingBar.VISIBLE);
-                            break;
-                        case 30:
-                            ratingBar30.setVisibility(RatingBar.VISIBLE);
-                            break;
-
-                    }
-
-                }
-            }
-
-        });
-
-        btnCreate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Report report = new Report();
-                report.setName(MainActivity.getRouteName());
-                report.setNumber(MainActivity.getRouteNumber());
-                report.setSpyName(ParseUser.getCurrentUser().getString(Constants.USER_FIO));
-                report.setRoute(ParseUser.getCurrentUser().getInt(Constants.USER_ROUTE));
-                report.setRaiting(allRating());
-                report.setCountMember(numberPicker.getValue());
-                report.setUlrSpyRepozitory(ParseUser.getCurrentUser().getString(Constants.USER_URL));
-//                report.setUrlFile(et_photoLink.getText().toString());
-                report.setArea(MainActivity.getArea());
-                report.setAnnouncedCount(MainActivity.getAnnoncedCount());
-                report.setBrigadirCount(numberPickerBrigadir.getValue());
-                int hourStart = hourPickerStart.getValue();
-                int minuteStart = minutePickierStart.getValue();
-                int hourFinish = hourPickerFinish.getValue();
-                int minuteFinish = minutePickierFinish.getValue();
-                report.setStart(addZerro(hourStart) + ":" + addZerro(minuteStart));
-                report.setFinish(addZerro(hourFinish) + ":" + addZerro(minuteFinish));
-
-                report.setViolation(checkBoxViolation.isChecked());
-                if (checkBoxViolation.isChecked()) {
-                    report.setViolationDescriprion(violationCheked());
-                    report.setUrlFile(ParseUser.getCurrentUser().getString(Constants.USER_URL));
-
-                }
-                report.setDescrioption(et_description.getText().toString());
-                report.setViolationsMarks(violationChekedSetMarks());
-                report.setBrigade(ParseUser.getCurrentUser().getInt(Constants.USER_BRIGADE));
-                ReportAPI reportAPI = new ReportAPI(createReportHandler);
-
-                reportAPI.create(report);
-                btnCreate.setEnabled(false);
-                progressBar.setVisibility(ProgressBar.VISIBLE);
-
+        for (int x = 0; x <= i2; x++) {
+            countPiple = x;
+            if(x != 0)
+                tv_activity.setVisibility(TextView.VISIBLE);
+            switch (x) {
+                case 0:
+                    break;
+                case 1:
+                    ratingBar1.setVisibility(RatingBar.VISIBLE);
+                    break;
+                case 2:
+                    ratingBar2.setVisibility(RatingBar.VISIBLE);
+                    break;
+                case 3:
+                    ratingBar3.setVisibility(RatingBar.VISIBLE);
+                    break;
+                case 4:
+                    ratingBar4.setVisibility(RatingBar.VISIBLE);
+                    break;
+                case 5:
+                    ratingBar5.setVisibility(RatingBar.VISIBLE);
+                    break;
+                case 6:
+                    ratingBar6.setVisibility(RatingBar.VISIBLE);
+                    break;
+                case 7:
+                    ratingBar7.setVisibility(RatingBar.VISIBLE);
+                    break;
+                case 8:
+                    ratingBar8.setVisibility(RatingBar.VISIBLE);
+                    break;
+                case 9:
+                    ratingBar9.setVisibility(RatingBar.VISIBLE);
+                    break;
+                case 10:
+                    ratingBar10.setVisibility(RatingBar.VISIBLE);
+                    break;
+                case 11:
+                    ratingBar11.setVisibility(RatingBar.VISIBLE);
+                    break;
+                case 12:
+                    ratingBar12.setVisibility(RatingBar.VISIBLE);
+                    break;
+                case 13:
+                    ratingBar13.setVisibility(RatingBar.VISIBLE);
+                    break;
+                case 14:
+                    ratingBar14.setVisibility(RatingBar.VISIBLE);
+                    break;
+                case 15:
+                    ratingBar15.setVisibility(RatingBar.VISIBLE);
+                    break;
+                case 16:
+                    ratingBar16.setVisibility(RatingBar.VISIBLE);
+                    break;
+                case 17:
+                    ratingBar17.setVisibility(RatingBar.VISIBLE);
+                    break;
+                case 18:
+                    ratingBar18.setVisibility(RatingBar.VISIBLE);
+                    break;
+                case 19:
+                    ratingBar19.setVisibility(RatingBar.VISIBLE);
+                    break;
+                case 20:
+                    ratingBar20.setVisibility(RatingBar.VISIBLE);
+                    break;
+                case 21:
+                    ratingBar21.setVisibility(RatingBar.VISIBLE);
+                    break;
+                case 22:
+                    ratingBar22.setVisibility(RatingBar.VISIBLE);
+                    break;
+                case 23:
+                    ratingBar23.setVisibility(RatingBar.VISIBLE);
+                    break;
+                case 24:
+                    ratingBar24.setVisibility(RatingBar.VISIBLE);
+                    break;
+                case 25:
+                    ratingBar25.setVisibility(RatingBar.VISIBLE);
+                    break;
+                case 26:
+                    ratingBar26.setVisibility(RatingBar.VISIBLE);
+                    break;
+                case 27:
+                    ratingBar27.setVisibility(RatingBar.VISIBLE);
+                    break;
+                case 28:
+                    ratingBar28.setVisibility(RatingBar.VISIBLE);
+                    break;
+                case 29:
+                    ratingBar29.setVisibility(RatingBar.VISIBLE);
+                    break;
+                case 30:
+                    ratingBar30.setVisibility(RatingBar.VISIBLE);
+                    break;
 
             }
-        });
 
-        return v;
-
+        }
 
     }
 

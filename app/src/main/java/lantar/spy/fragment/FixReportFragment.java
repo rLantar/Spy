@@ -37,6 +37,9 @@ import lantar.spy.utils.Constants;
 public class FixReportFragment extends Fragment {
 
 
+    private String descriptionUpdate;
+    private String urlViolation;
+
     private int route;
     private int brigade;
 
@@ -49,48 +52,18 @@ public class FixReportFragment extends Fragment {
     private ProgressBar progressBar;
     private ScrollView scrollView;
 
-    private RatingBar ratingBar1;
-    private RatingBar ratingBar2;
-    private RatingBar ratingBar3;
-    private RatingBar ratingBar4;
-    private RatingBar ratingBar5;
-    private RatingBar ratingBar6;
-    private RatingBar ratingBar7;
-    private RatingBar ratingBar8;
-    private RatingBar ratingBar9;
-    private RatingBar ratingBar10;
-    private RatingBar ratingBar11;
-    private RatingBar ratingBar12;
-    private RatingBar ratingBar13;
-    private RatingBar ratingBar14;
-    private RatingBar ratingBar15;
-    private RatingBar ratingBar16;
-    private RatingBar ratingBar17;
-    private RatingBar ratingBar18;
-    private RatingBar ratingBar19;
-    private RatingBar ratingBar20;
-    private RatingBar ratingBar21;
-    private RatingBar ratingBar22;
-    private RatingBar ratingBar23;
-    private RatingBar ratingBar24;
-    private RatingBar ratingBar25;
-    private RatingBar ratingBar26;
-    private RatingBar ratingBar27;
-    private RatingBar ratingBar28;
-    private RatingBar ratingBar29;
-    private RatingBar ratingBar30;
+    private RatingBar ratingKnowledge;
+    private RatingBar ratingSpeech;
 
-    private CheckBox checkBox1;
-    private CheckBox checkBox2;
-    private CheckBox checkBox3;
-    private CheckBox checkBox4;
-    private CheckBox checkBox5;
-    private CheckBox checkBox6;
-    private CheckBox checkBox7;
-    private CheckBox checkBox8;
-    private CheckBox checkBox9;
-    private CheckBox checkBox10;
-    private CheckBox checkBox11;
+    private RatingBar ratingBar1, ratingBar2, ratingBar3, ratingBar4, ratingBar5, ratingBar6,
+            ratingBar7, ratingBar8, ratingBar9, ratingBar10, ratingBar11, ratingBar12,
+            ratingBar13, ratingBar14, ratingBar15, ratingBar16, ratingBar17, ratingBar18,
+            ratingBar19, ratingBar20, ratingBar21, ratingBar22, ratingBar23, ratingBar24,
+            ratingBar25, ratingBar26, ratingBar27, ratingBar28, ratingBar29, ratingBar30;
+
+    private CheckBox checkBox1 ,checkBox2 ,checkBox3 ,checkBox4 ,checkBox5 ,checkBox6
+            ,checkBox7 ,checkBox8 ,checkBox9 ,checkBox10 ,checkBox11;
+
 
     private NumberPicker numberPicker;
     private NumberPicker numberPickerBrigadir;
@@ -100,6 +73,10 @@ public class FixReportFragment extends Fragment {
     private NumberPicker minutePickierFinish;
     private CheckBox checkBoxViolation;
 
+
+    private TextView tv_activity;
+    private TextView tv_knowledge;
+    private TextView tv_speech;
     private TextView spyName;
 
     private int countPiple;
@@ -109,9 +86,10 @@ public class FixReportFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_create_report, container, false);
 
-//        Toast.makeText(getActivity(), getResources().getString(R.string.report_updateMessage), Toast.LENGTH_LONG).show();
-
         spyName = (TextView) v.findViewById(R.id.fcr_SpyName);
+        tv_knowledge = (TextView) v.findViewById(R.id.fcr_tvKnowledge);
+        tv_speech = (TextView) v.findViewById(R.id.fcr_tvSpeech);
+        tv_activity = (TextView) v.findViewById(R.id.fcr_tvAtivity);
         btnCreate = (Button) v.findViewById(R.id.crf_btnCreate);
         name = MainActivity.getRouteName();
         number = MainActivity.getRouteNumber();
@@ -120,6 +98,11 @@ public class FixReportFragment extends Fragment {
         textName = (TextView) v.findViewById(R.id.fcr_textName);
         progressBar = (ProgressBar) v.findViewById(R.id.fcr_progressBar);
         scrollView = (ScrollView) v.findViewById(R.id.scrollView2);
+
+        ratingKnowledge = (RatingBar) v.findViewById(R.id.fcr_ratingKnowledge);
+        ratingSpeech = (RatingBar) v.findViewById(R.id.fcr_ratingSpeech);
+        ratingKnowledge.setStepSize(1);
+        ratingSpeech.setStepSize(1);
 
         ratingBar1 = (RatingBar) v.findViewById(R.id.ratingBar1);
         ratingBar2 = (RatingBar) v.findViewById(R.id.ratingBar2);
@@ -152,6 +135,8 @@ public class FixReportFragment extends Fragment {
         ratingBar29 = (RatingBar) v.findViewById(R.id.ratingBar29);
         ratingBar30 = (RatingBar) v.findViewById(R.id.ratingBar30);
 
+        setStepSizeRatigBar(); //Size 1
+
         checkBoxViolation = (CheckBox) v.findViewById(R.id.crf_Violation);
         checkBox1 = (CheckBox) v.findViewById(R.id.checkBox1);
         checkBox2 = (CheckBox) v.findViewById(R.id.checkBox2);
@@ -165,36 +150,7 @@ public class FixReportFragment extends Fragment {
         checkBox10 = (CheckBox) v.findViewById(R.id.checkBox10);
         checkBox11 = (CheckBox) v.findViewById(R.id.checkBox11);
 
-        ratingBar1.setStepSize(1);
-        ratingBar2.setStepSize(1);
-        ratingBar3.setStepSize(1);
-        ratingBar4.setStepSize(1);
-        ratingBar5.setStepSize(1);
-        ratingBar6.setStepSize(1);
-        ratingBar7.setStepSize(1);
-        ratingBar8.setStepSize(1);
-        ratingBar9.setStepSize(1);
-        ratingBar10.setStepSize(1);
-        ratingBar11.setStepSize(1);
-        ratingBar12.setStepSize(1);
-        ratingBar13.setStepSize(1);
-        ratingBar14.setStepSize(1);
-        ratingBar15.setStepSize(1);
-        ratingBar16.setStepSize(1);
-        ratingBar17.setStepSize(1);
-        ratingBar18.setStepSize(1);
-        ratingBar19.setStepSize(1);
-        ratingBar20.setStepSize(1);
-        ratingBar21.setStepSize(1);
-        ratingBar22.setStepSize(1);
-        ratingBar23.setStepSize(1);
-        ratingBar24.setStepSize(1);
-        ratingBar25.setStepSize(1);
-        ratingBar26.setStepSize(1);
-        ratingBar27.setStepSize(1);
-        ratingBar28.setStepSize(1);
-        ratingBar29.setStepSize(1);
-        ratingBar30.setStepSize(1);
+
 
         textName.setText(number + ". " + name.toString());
 
@@ -246,38 +202,8 @@ public class FixReportFragment extends Fragment {
         numberPicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             @Override
             public void onValueChange(NumberPicker numberPicker, int i, int i2) {
-                ratingBar1.setVisibility(RatingBar.GONE);
-                ratingBar2.setVisibility(RatingBar.GONE);
-                ratingBar3.setVisibility(RatingBar.GONE);
-                ratingBar4.setVisibility(RatingBar.GONE);
-                ratingBar5.setVisibility(RatingBar.GONE);
-                ratingBar6.setVisibility(RatingBar.GONE);
-                ratingBar7.setVisibility(RatingBar.GONE);
-                ratingBar8.setVisibility(RatingBar.GONE);
-                ratingBar9.setVisibility(RatingBar.GONE);
-                ratingBar10.setVisibility(RatingBar.GONE);
-                ratingBar11.setVisibility(RatingBar.GONE);
-                ratingBar12.setVisibility(RatingBar.GONE);
-                ratingBar13.setVisibility(RatingBar.GONE);
-                ratingBar14.setVisibility(RatingBar.GONE);
-                ratingBar15.setVisibility(RatingBar.GONE);
-                ratingBar16.setVisibility(RatingBar.GONE);
-                ratingBar17.setVisibility(RatingBar.GONE);
-                ratingBar18.setVisibility(RatingBar.GONE);
-                ratingBar19.setVisibility(RatingBar.GONE);
-                ratingBar20.setVisibility(RatingBar.GONE);
-                ratingBar21.setVisibility(RatingBar.GONE);
-                ratingBar22.setVisibility(RatingBar.GONE);
-                ratingBar23.setVisibility(RatingBar.GONE);
-                ratingBar24.setVisibility(RatingBar.GONE);
-                ratingBar25.setVisibility(RatingBar.GONE);
-                ratingBar26.setVisibility(RatingBar.GONE);
-                ratingBar27.setVisibility(RatingBar.GONE);
-                ratingBar28.setVisibility(RatingBar.GONE);
-                ratingBar29.setVisibility(RatingBar.GONE);
-                ratingBar30.setVisibility(RatingBar.GONE);
 
-
+                setVisibilityRatigBarGone();
                 raitingBarVisibility(i2);
             }
 
@@ -297,7 +223,8 @@ public class FixReportFragment extends Fragment {
                 report.setRaiting(allRating());
                 report.setCountMember(numberPicker.getValue());
 //                report.setUlrSpyRepozitory(ParseUser.getCurrentUser().getString(Constants.USER_URL));
-//                report.setUrlFile(et_photoLink.getText().toString());
+                if(report.getViolationDescriprion() == null)
+                report.setUrlFile("");
 
                 int hourStart = hourPickerStart.getValue();
                 int minuteStart = minutePickierStart.getValue();
@@ -307,13 +234,30 @@ public class FixReportFragment extends Fragment {
                 report.setFinish(addZerro(hourFinish) + ":" + addZerro(minuteFinish));
 
                 report.setViolation(checkBoxViolation.isChecked());
-                if (checkBoxViolation.isChecked())
+                if (checkBoxViolation.isChecked()) {
+                    report.setUrlFile(urlViolation);
                     report.setViolationDescriprion(violationCheked());
+                }
+                else
+                {
+                    report.setUrlFile("");
+                    report.setViolationDescriprion("");
+                }
                 report.setDescrioption(et_description.getText().toString());
                 report.setObjectId(MainActivity.getReportId());
                 report.setRoute(route);
                 report.setBrigade(brigade);
                 report.setBrigadirCount(numberPickerBrigadir.getValue());
+                report.setKnowlege("" + ratingKnowledge.getRating());
+                report.setSpeech("" + ratingSpeech.getRating());
+
+                if(report.getDescrioption() != descriptionUpdate)
+                    report.setLili(false);
+
+                if(ParseUser.getCurrentUser().getInt(Constants.USER_BRIGADE) < 4){
+                    report.setCube(true);
+                }
+
                 ReportAPI reportAPI = new ReportAPI(fixReportHandler);
                 reportAPI.update(report);
                 btnCreate.setEnabled(false);
@@ -326,11 +270,6 @@ public class FixReportFragment extends Fragment {
 
 
     }
-
-    private void initialize(){
-
-    }
-
 
 
     private String addZerro(int x) {
@@ -353,6 +292,72 @@ public class FixReportFragment extends Fragment {
         checkBox9.setVisibility(CheckBox.VISIBLE);
         checkBox10.setVisibility(CheckBox.VISIBLE);
         checkBox11.setVisibility(CheckBox.VISIBLE);
+    }
+
+    private void setStepSizeRatigBar(){
+        ratingBar1.setStepSize(1);
+        ratingBar2.setStepSize(1);
+        ratingBar3.setStepSize(1);
+        ratingBar4.setStepSize(1);
+        ratingBar5.setStepSize(1);
+        ratingBar6.setStepSize(1);
+        ratingBar7.setStepSize(1);
+        ratingBar8.setStepSize(1);
+        ratingBar9.setStepSize(1);
+        ratingBar10.setStepSize(1);
+        ratingBar11.setStepSize(1);
+        ratingBar12.setStepSize(1);
+        ratingBar13.setStepSize(1);
+        ratingBar14.setStepSize(1);
+        ratingBar15.setStepSize(1);
+        ratingBar16.setStepSize(1);
+        ratingBar17.setStepSize(1);
+        ratingBar18.setStepSize(1);
+        ratingBar19.setStepSize(1);
+        ratingBar20.setStepSize(1);
+        ratingBar21.setStepSize(1);
+        ratingBar22.setStepSize(1);
+        ratingBar23.setStepSize(1);
+        ratingBar24.setStepSize(1);
+        ratingBar25.setStepSize(1);
+        ratingBar26.setStepSize(1);
+        ratingBar27.setStepSize(1);
+        ratingBar28.setStepSize(1);
+        ratingBar29.setStepSize(1);
+        ratingBar30.setStepSize(1);
+    }
+
+    private void setVisibilityRatigBarGone(){
+        ratingBar1.setVisibility(RatingBar.GONE);
+        ratingBar2.setVisibility(RatingBar.GONE);
+        ratingBar3.setVisibility(RatingBar.GONE);
+        ratingBar4.setVisibility(RatingBar.GONE);
+        ratingBar5.setVisibility(RatingBar.GONE);
+        ratingBar6.setVisibility(RatingBar.GONE);
+        ratingBar7.setVisibility(RatingBar.GONE);
+        ratingBar8.setVisibility(RatingBar.GONE);
+        ratingBar9.setVisibility(RatingBar.GONE);
+        ratingBar10.setVisibility(RatingBar.GONE);
+        ratingBar11.setVisibility(RatingBar.GONE);
+        ratingBar12.setVisibility(RatingBar.GONE);
+        ratingBar13.setVisibility(RatingBar.GONE);
+        ratingBar14.setVisibility(RatingBar.GONE);
+        ratingBar15.setVisibility(RatingBar.GONE);
+        ratingBar16.setVisibility(RatingBar.GONE);
+        ratingBar17.setVisibility(RatingBar.GONE);
+        ratingBar18.setVisibility(RatingBar.GONE);
+        ratingBar19.setVisibility(RatingBar.GONE);
+        ratingBar20.setVisibility(RatingBar.GONE);
+        ratingBar21.setVisibility(RatingBar.GONE);
+        ratingBar22.setVisibility(RatingBar.GONE);
+        ratingBar23.setVisibility(RatingBar.GONE);
+        ratingBar24.setVisibility(RatingBar.GONE);
+        ratingBar25.setVisibility(RatingBar.GONE);
+        ratingBar26.setVisibility(RatingBar.GONE);
+        ratingBar27.setVisibility(RatingBar.GONE);
+        ratingBar28.setVisibility(RatingBar.GONE);
+        ratingBar29.setVisibility(RatingBar.GONE);
+        ratingBar30.setVisibility(RatingBar.GONE);
     }
 
     private void raitingBarVisibility(int i2) {
@@ -690,7 +695,28 @@ public class FixReportFragment extends Fragment {
         else return true;
     }
 
+    private void cubeReport(){
+//       numberPicker = (NumberPicker) v.findViewById(R.id.fcr_numberPicer);
+
+        numberPicker.setMaxValue(5);
+        numberPicker.setMinValue(0);
+
+        numberPickerBrigadir.setMaxValue(5);
+        numberPickerBrigadir.setMinValue(0);
+
+        tv_activity.setVisibility(TextView.VISIBLE);
+        tv_knowledge.setVisibility(TextView.VISIBLE);
+        tv_speech.setVisibility(TextView.VISIBLE);
+        ratingKnowledge.setVisibility(RatingBar.VISIBLE);
+        ratingSpeech.setVisibility(RatingBar.VISIBLE);
+
+    }
+
     private void onReportResult(Report report) {
+        descriptionUpdate = report.getDescrioption();
+        urlViolation = report.getUlrSpyRepozitory();
+        if(report.isCube())
+        cubeReport();
 
         route = report.getRoute();
         brigade = report.getBrigade();
@@ -703,6 +729,8 @@ public class FixReportFragment extends Fragment {
         String startMinute = String.valueOf(report.getStart().charAt(3)) + String.valueOf(report.getStart().charAt(4));
         String finishHour = String.valueOf(report.getFinish().charAt(0)) + String.valueOf(report.getFinish().charAt(1));
         String finishMinute = String.valueOf(report.getFinish().charAt(3)) + String.valueOf(report.getFinish().charAt(4));
+
+
 
         progressBar.setVisibility(ProgressBar.GONE);
         scrollView.setVisibility(ScrollView.VISIBLE);
@@ -724,6 +752,11 @@ public class FixReportFragment extends Fragment {
             checkBoxViolation.setChecked(true);
             checkBoxVisibility();
         }
+
+        ratingSpeech.setRating(Float.parseFloat(report.getSpeech()));
+        ratingKnowledge.setRating(Float.parseFloat(report.getKnowlege()));
+
+
     }
 
     @SuppressLint("HandlerLeak")

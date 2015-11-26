@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -45,6 +46,7 @@ public class RouteAdapter extends ArrayAdapter {
                     .findViewById(R.id.item_list_brigInfo);
             convertView.setTag(holder);
 
+
         } else
             holder = (ViewHolder) convertView.getTag();
 
@@ -61,4 +63,9 @@ class ViewHolder {
     TextView title;
     TextView violation;
     TextView descriprion;
+    TextView knowledge;
+    TextView speech;
+    RatingBar ratingKnowledge;
+    RatingBar ratingSpeech;
+
 }

@@ -80,6 +80,8 @@ public class RoutsListFragment extends Fragment {
                 MainActivity.setRoute(routeList.get(position));
                 MainActivity.setArea(routeList.get(position).getArea());
                 MainActivity.setAnnoncedCount(routeList.get(position).getNumber());
+                MainActivity.setBrigadirName(routeList.get(position).getBrigadir());
+                MainActivity.setCube(routeList.get(position).isCube());
 
                 FragmentManager fm = getFragmentManager();
                 Fragment fragment = new CreateReportFragment();

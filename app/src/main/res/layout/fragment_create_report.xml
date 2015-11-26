@@ -37,7 +37,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Хрещатик 1"
+                android:text="Плутон"
                 android:id="@+id/fcr_textName"
                 android:layout_gravity="center_horizontal"
                 android:padding="5dp" />
@@ -57,7 +57,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="Со слов бригадира"
+                        android:text="Указал бригадир"
                         android:id="@+id/textView"
                         android:layout_gravity="center_horizontal" />
 
@@ -83,7 +83,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="Рельное количество"
+                        android:text="Обнаружено"
                         android:id="@+id/textView9"
                         android:layout_gravity="center_horizontal" />
 
@@ -211,9 +211,44 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Оценка знаний"
+                android:id="@+id/fcr_tvKnowledge"
+                android:layout_gravity="center_horizontal"
+                android:visibility="gone" />
+
+            <RatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/fcr_ratingKnowledge"
+                android:layout_gravity="center_horizontal"
+                android:numStars="3"
+                android:visibility="gone" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Подача материала"
+                android:id="@+id/fcr_tvSpeech"
+                android:layout_gravity="center_horizontal"
+                android:visibility="gone" />
+
+            <RatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/fcr_ratingSpeech"
+                android:layout_gravity="center_horizontal"
+                android:numStars="3"
+                android:visibility="gone" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Качество активтости на точке"
-                android:id="@+id/textView5"
-                android:layout_gravity="center_horizontal" />
+                android:id="@+id/fcr_tvAtivity"
+                android:layout_gravity="center_horizontal"
+                android:visibility="gone" />
 
             <RatingBar
                 android:layout_width="wrap_content"
@@ -545,7 +580,7 @@
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Раздача АПМ без предусмотренной инструкцией активиста фразой"
+                android:text="Бездействие более 2х минут"
                 android:id="@+id/checkBox9"
                 android:layout_gravity="center_horizontal|left"
                 android:checked="false"

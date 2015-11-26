@@ -65,6 +65,9 @@ public class LoginActivity extends Activity{
 //        });
 
         if(ParseUser.getCurrentUser() != null){
+            ParseUser.getCurrentUser().put("Version","1.4");
+       ParseUser.getCurrentUser().saveInBackground();
+
             startMainActivity();
         }
 

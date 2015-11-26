@@ -102,11 +102,12 @@ public class UserAPI {
 
 	}
 
-    public void update() {
+    public static void update() {
         ParseUser.getCurrentUser().refreshInBackground(new RefreshCallback() {
             public void done(ParseObject object, ParseException e) {
                 if (e == null) {
                     Log.i(Constants.LOG, "User update Success! Route: " + ParseUser.getCurrentUser().get(Constants.ROUTE_ROUTE));
+
                     success();
                 } else {
                     error();
