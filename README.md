@@ -5,3 +5,17 @@ identity user.
 #Technologies
 Tracking geolocation with LocationListener, implementing push notifications, db
 Parse.com
+<table>
+
+
+<tr>
+
+<th>Login <br><img src="assets/screenshots/Login.png" width="40%">
+</th>
+
+<th>Register<br><img src="assets/screenshots/Register.png" width="40%">
+</th>
+
+</tr>
+
+</table>
