@@ -18,4 +18,25 @@ Parse.com
 
 </tr>
 
+<tr>
+
+<th>Drawer menu<br><img src="assets/screenshots/Drawer menu.png" width="40%">
+</th>
+
+<th>Create report<br><img src="assets/screenshots/Create report.png" width="40%">
+</th>
+
+</tr>
+
+<tr>
+
+<th>Report list<br><img src="assets/screenshots/Report list.png" width="40%">
+</th>
+
+<th>Report<br><img src="assets/screenshots/Report.png" width="40%">
+</th>
+
+</tr>
+
+
 </table>
