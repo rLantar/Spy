@@ -33,7 +33,7 @@ Parse.com
 <th>Report list<br><img src="assets/screenshots/Report list.png" width="40%">
 </th>
 
-<th>Report<br><img src="assets/screenshots/Report.png" width="40%">
+<th>Report<br><img src="assets/screenshots/report.png" width="40%">
 </th>
 
 </tr>
